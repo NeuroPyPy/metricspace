@@ -1,4 +1,3 @@
-from . import compute
-from . import pairwise_distances
-
-__all__ = ['compute', 'pairwise_distances']
+from .compute import dist_engine
+from .distance_matrix import DistanceMatrix
+__all__ = ['dist_engine', 'DistanceMatrix']

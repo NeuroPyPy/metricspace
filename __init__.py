@@ -1,4 +1,5 @@
-from . import py
-from . import mat
+from py import distances
+from py import metrics
+from py import model
 
-__all__ = ['py', 'mat']
+__all__ = ['distances', 'metrics', 'model']
