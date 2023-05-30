@@ -1,0 +1,36 @@
+Index: .gitignore.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>*.xls\r\n*.xlsx\r\n*.xml\r\nhtml/**\r\n*.mat\r\n*.nex\r\n*.idea\r\n__pycache__/*\r\n__pycache__/**\r\n.idea/**\r\ndata/**\r\ndata\r\npy/data/**\r\nexclude/*\r\nexclude/**\r\npy/metrics/__pycache__/*\r\npy/metrics/__pycache__/**\r\npy/metrics/__pycache__\r\n*.egg-info/\r\n# blanket stuff to ignore\r\n__pycache__/\r\n*.py[cod]\r\n*.egg-info/\r\ndist/\r\nbuild/\r\n*.egg\r\n*.so\r\n*.o\r\n*.a\r\n*.dll\r\n*.dylib\r\n*.pdb\r\n*.exp\r\n*.lib\r\n*.pxd\r\n*.pxi\r\n*.whl\r\n*.exe\r\n*.prof\r\n.ipynb_checkpoints\r\nvenv/\r\n.env\r\n.DS_Store\r\n*.swp\r\n*.swo
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore.txt b/.gitignore.txt
+--- a/.gitignore.txt	(revision 735c36fda28834783b763c295c6988e32ae7c5cf)
++++ b/.gitignore.txt	(date 1685385611124)
+@@ -1,20 +1,18 @@
+ *.xls
+ *.xlsx
+ *.xml
+-html/**
+ *.mat
++html/
+ *.nex
+ *.idea
+-__pycache__/*
+-__pycache__/**
+-.idea/**
++__pycache__/
++.idea/
+ data/**
+ data
+ py/data/**
+-exclude/*
+-exclude/**
+-py/metrics/__pycache__/*
++exclude/
+ py/metrics/__pycache__/**
++__pycache__/
+ py/metrics/__pycache__
+ *.egg-info/
+ # blanket stuff to ignore

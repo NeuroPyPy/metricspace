@@ -8,7 +8,6 @@ py/Visualize.py
 py/__init__.py
 py/distances/__init__.py
 py/distances/compute.py
-py/distances/pairwise_distances.py
 py/metrics/__init__.py
 py/metrics/metrics.py
 py/model/TemporalClustering.py
