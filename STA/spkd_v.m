@@ -1,38 +1,4 @@
-% function [ D_exch ] = spkd_v( DD, SD, numt, curcounts, qvals )
-
-%%
-% go = curcounts~=0;
-% 
-% D_exch = zeros(numt,numt,numel(qvals),'single');
-% 
-% 
-% for xi = 1:(numt-1)
-%         for xj = (xi+1):numt
-%             if go(xi)&&go(xj)
-%                 for xii=2:(curcounts(xi)+1)
-%                     for xjj=2:(curcounts(xj)+1)
-%                         DD{xi,xj}(:,xii,xjj)= ...
-%                             min(cat(2, ...
-%                             DD{xi,xj}(:,xii-1,xjj)+1, ...
-%                             DD{xi,xj}(:,xii,xjj-1)+1, ...
-%                             ( ...
-%                                 DD{xi,xj}(:,xii-1,xjj-1) ...
-%                                 + ...
-%                                 SD{xi,xj}(:,xii-1,xjj-1) ...
-%                             )...
-%                             ),[],2);
-%                     end
-%                 end
-%                 D_exch(xi,xj,:) = squeeze(DD{xi,xj}(:,end,end));
-%             else
-%                 D_exch(xi,xj,:) = max(curcounts([xi xj]));
-%             end
-%         end
-% end
-%%
 function [ D ] = spkd_v( scr, SD, qvals )
-%%
-
 
 for xii=2:(size(SD,2)+1)
     for xjj=2:(size(SD,3)+1)
@@ -50,5 +16,4 @@ for xii=2:(size(SD,2)+1)
 end
 D = single(squeeze(scr(:,end,end)));
 
-%%
 end
