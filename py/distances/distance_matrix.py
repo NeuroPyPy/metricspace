@@ -1,6 +1,8 @@
 from __future__ import annotations
 import numpy as np
 from . import dist_engine
+from ..model.distclust import distclust
+
 
 def to_numpy_objarray(list_of_lists):
     """
@@ -26,19 +28,21 @@ def to_numpy_objarray(list_of_lists):
 
     return obj_arr
 
+
 class DistanceMatrix:
     """
     A class for computing distance matrices for spike trains.
     """
     qvals = np.concatenate(([0], 2 ** np.arange(-4, 9.5, 0.5)))
+
     def __init__(self, data, ):
         self.data = data
         if not hasattr(data, 'intervals'):
             raise ValueError('Data must have intervals attribute.')
         self.events = np.unique(self.data.event_df['event'])
-        self.neurons = {neuron: {} for neuron in self.data.neurons }
+        self.neurons = {neuron: {} for neuron in self.data.neurons}
         self.format_data()
-        self.get_distances()
+        self.fit()
 
     def __repr__(self):
         return f'DistanceMatrix({self.data.filename})'
@@ -55,8 +59,9 @@ class DistanceMatrix:
                 event = row['event']
                 start = row['start_time']
                 end = row['end_time']
-                if end-start >= 2:
-                    spks = self.data.neurons[neuron][(self.data.neurons[neuron] >= end) & (self.data.neurons[neuron] <= (end + 2))]
+                if end - start >= 2:
+                    spks = self.data.neurons[neuron][
+                        (self.data.neurons[neuron] >= end) & (self.data.neurons[neuron] <= (end + 2))]
                     adjusted_spks = spks - end
                     thisstim = (event, start, adjusted_spks.tolist())  # need to convert to list for MATLAB
                     result.append(thisstim)
@@ -68,12 +73,25 @@ class DistanceMatrix:
             _, counts = np.unique(final['labels'], return_counts=True)
             final['nsam'] = counts.tolist()
             if not np.sum(counts) == len(final['labels']):
-                raise ValueError('Something went wrong with the nsam counts') # this shouldn't happen, but check anyway
+                raise ValueError('Something went wrong with the nsam counts')  # this shouldn't happen, but check anyway
             self.neurons[neuron] = final
 
-    def get_distances(self):
+    def fit(self):
         for neuron in self.neurons.keys():
             print(f'Calculating distances for {neuron}')
             cspks = to_numpy_objarray(self.neurons[neuron]['cspks'])
             self.neurons[neuron]['Dists'] = dist_engine(cspks)
             print(f'Finished calculating distances for {neuron}')
+
+    def predict(self):
+        for neuron in self.neurons.keys():
+
+            anear = np.zeros((self.neurons[neuron]['Dists'].shape[0],
+                              self.neurons[neuron]['Dists'].shape[1],
+                              len(self.qvals)))
+            dists = self.neurons[neuron]['Dists']
+            nsam = self.neurons[neuron]['nsam']
+
+            for qv in range(len(self.qvals)):
+                d_vec = dists[:, :, qv]
+                anear[:, :, qv] = distclust(d_vec, nsam)

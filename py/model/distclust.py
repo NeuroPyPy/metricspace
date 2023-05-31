@@ -6,7 +6,6 @@ Translation by Flynn O'Connell, 2023.
 (c) 2000 by Daniel Reich. All rights reserved.
 """
 
-
 def distclust(dists, nsam, expo=-2, ifresamp=0, iftrump=1):
     """
         Distance clustering. Classificatiion algorithm that returns a KxKxQ confusion matrix where K
