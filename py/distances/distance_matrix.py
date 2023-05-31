@@ -27,6 +27,10 @@ def to_numpy_objarray(list_of_lists):
     return obj_arr
 
 class DistanceMatrix:
+    """
+    A class for computing distance matrices for spike trains.
+    """
+    qvals = np.concatenate(([0], 2 ** np.arange(-4, 9.5, 0.5)))
     def __init__(self, data, ):
         self.data = data
         if not hasattr(data, 'intervals'):
@@ -40,6 +44,11 @@ class DistanceMatrix:
         return f'DistanceMatrix({self.data.filename})'
 
     def format_data(self):
+        """
+            Prep data for distance matrix calculation.
+            Final input should be similar to a MATLAB cell array, where each element is a list of spike times.
+            Each element in the list is a trial, and each trial is a list of spike times.
+        """
         for neuron in self.data.neurons:
             result = []
             for ind, row in self.data.event_df.iterrows():
@@ -51,8 +60,9 @@ class DistanceMatrix:
                     adjusted_spks = spks - end
                     thisstim = (event, start, adjusted_spks.tolist())  # need to convert to list for MATLAB
                     result.append(thisstim)
+
             final = {
-                'labels': [x[0] for x in result],  # 'a', 'as', 'msg', 'n', 'q', 's'
+                'labels': [x[0] for x in result],
                 'cspks': [x[2] for x in result],  # list of lists of spike times
             }
             _, counts = np.unique(final['labels'], return_counts=True)
@@ -67,14 +77,3 @@ class DistanceMatrix:
             cspks = to_numpy_objarray(self.neurons[neuron]['cspks'])
             self.neurons[neuron]['Dists'] = dist_engine(cspks)
             print(f'Finished calculating distances for {neuron}')
-
-
-
-
-
-# distances = DistanceMatrix(data, tc_events, tc_names)
-# cspks = to_numpy_objarray(final_today['cspks'] + final_yesterday['cspks'])
-# nsam = np.array([x[0].shape[0] for x in cspks])
-# qvals = np.concatenate(([0], 2 ** np.arange(-4, 9.5, 0.5)))
-# Dists = pairwise.dist_engine(np.array(cspks))
-#
