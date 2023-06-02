@@ -2,6 +2,15 @@ import numpy as np
 
 
 def histjabi(cvec):
+    """
+        Calculates the jackknife bias that should be added to the naive plugin estimate, in bits.
+
+        Args:
+            cvec (numpy.ndarray): Vector of counts.
+
+        Returns:
+            float: Jackknife bias in bits.
+        """
     cvec = np.reshape(cvec, (np.prod(cvec.shape), 1))
     if np.max(cvec) <= 1:
         h = 0

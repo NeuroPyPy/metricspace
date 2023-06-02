@@ -3,6 +3,16 @@ from . import histtpbi as htpbi
 
 
 def tblxtpbi(ctabl, useall=0):
+    """
+        Calculates the Treves-Panzeri bias correction to be added to the naive transinformation estimate, in bits.
+
+        Args:
+            ctabl (numpy.ndarray): 2-dimensional array of counts.
+            useall (int, optional): Use all bins or specific bins based on the parameter. Default is 0.
+
+        Returns:
+            float: Treves-Panzeri bias correction estimate in bits.
+        """
     h = None
     if useall == 1:
         h = htpbi.histtpbi(np.sum(ctabl, axis=0), 1) + htpbi.histtpbi(np.sum(ctabl, axis=1), 1) - htpbi.histtpbi(ctabl,
