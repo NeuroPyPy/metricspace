@@ -1,15 +1,5 @@
-*.xls
-*.xlsx
-*.xml
-*.mat
-html/
-*.nex
 __pycache__/
 .idea/
-data/
-exclude/
-*.egg-info/
-# blanket stuff to ignore
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -30,8 +20,6 @@ build/
 *.exe
 *.prof
 .ipynb_checkpoints
-venv/
-.env
 .DS_Store
 *.swp
 *.swo

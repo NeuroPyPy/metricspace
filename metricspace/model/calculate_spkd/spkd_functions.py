@@ -72,10 +72,11 @@ def calculate_spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, res: floa
     return np.maximum(d, np.transpose(d, [1, 0, 2]))
 
 
-# Check if rs is installed ---------------------------------------------------------------------------------------------
+# Check if rs_distances is installed -----------------------------------------------------------------------------------
 def _compute_spike_distance(scr, sd):
     """
-    Compute spike-time distance, using either the rs_distances module (if installed and importable) or a fallback function.
+    Compute spike-time distance, using either the rs_distances module (if installed and importable) or
+    the fallback iterate_spiketrains @jit decorated function.
 
     Args:
         scr, sd: Input arguments for the distance computation function.
@@ -89,7 +90,7 @@ def _compute_spike_distance(scr, sd):
         return _spkd_v(scr, sd)
 
 
-# If rs is installed ---------------------------------------------------------------------------------------------------
+# If rs_distances is installed -----------------------------------------------------------------------------------------
 def _spkd_v_rs(scr, sd):
     scr = rs_distances.iterate_spiketrains_impl(scr, sd)
     # The last column represents the final values of the accumulated cost of aligning the two spike trains
@@ -97,7 +98,7 @@ def _spkd_v_rs(scr, sd):
     return d
 
 
-# If rs not installed --------------------------------------------------------------------------------------------------
+# If rs_distances not installed ----------------------------------------------------------------------------------------
 def _spkd_v(scr, sd):
     """
     Compute spike-time distance.

@@ -8,5 +8,7 @@ setup(
     license='',
     author='Flynn OConnell',
     author_email='FlynnOConnell@gmail.com',
-    description='Classification algorithm to decode stimuli based on spike distance in metric space, rather than spike rate. Original concept featured in Victor & Purpura 1996. '
+    description='Classification algorithm to decode stimuli based on spike distance in metric space, rather than '
+                'spike rate. Original concept featured in Victor & Purpura 1996.',
+    install_requires=['numpy', 'rs_distances', 'numba'],
 )
