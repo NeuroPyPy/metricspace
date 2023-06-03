@@ -1,3 +1,3 @@
-from . import py
+from . import metricspace
 
 __all__ = ['py']

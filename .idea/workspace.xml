@@ -5,27 +5,245 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e180ffa-6bc4-4793-82fe-692d2a2eb75d" name="Changes" comment="conversion functions">
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/metricspace.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2023_2_44_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2023_2_44_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mat/spkd_vars.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/distances/distance_matrix.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spkd_vars.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/ex_distances.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metricspace/model/spike_distances.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/metricspace.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/metricspace.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2023_2_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_29_2023_2_44_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/codegen/mex/spkd_q_ex_para/spkd_q_ex_para_mex.mexw64.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/codegen/mex/spkd_q_ex_para/spkd_q_ex_para_mex_mex.arf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/codegen/mex/spkd_v/setEnv.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/codegen/mex/spkd_v_exch/spkd_v_exch_mex.mexw64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/codegen/mex/spkd_v_exch/spkd_v_exch_mex.mexw64.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/histbi.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/histinfo.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/histjabi.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/histtpbi.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/metricPredict.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkdMex.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkdMex.rtf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_pw.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_pw_exch.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_pw_mex.mexw64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_pw_py.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_q_ex_para.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_q_ex_para.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_q_ex_para_mex.mexw64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_qex_pw.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_qex_pw.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_qex_pw_mex.mexw64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_qpara.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_qpara.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_qpara_mex.mexw64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_slide.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_v.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_v.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_v_exch.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_v_exch.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_v_exch_mex.mexw64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/spkd_v_mex.mexw64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/tblxbi.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STA/tblxinfo.m" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mat/for_spkd_pw/for_spkd_pw.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mat/py_to_spkd_pw.m" beforeDir="false" afterPath="$PROJECT_DIR$/mat/py_to_spkd_pw.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metricspace.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/distances/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/distances/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/distances/compute.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/distances/compute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/metrics/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/metrics/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/count_successive_elements.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mat/py_to_spkd_pw.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mat/spkd_vars.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/ctwmcmcinfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/ctwmcmcsample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/ctwmcmctree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directbin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcat_jack.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcat_shuf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcondcat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcondformal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcondtime.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcountclass.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcountcond.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directcounttotal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/directformal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/entropy1d.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/entropy1dvec.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/info2d.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/infocond.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/m2html.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/make.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/match_rate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/matrix2hist2d.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/metric.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/metric_jack.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/metric_shuf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/metricclust.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/metricdist.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/metricopen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/multisitearray.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/multisitesubset.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/staplot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/staraster.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/staread.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/staversion.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/function/stawrite.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/binless_continuous.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/binless_drift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/binless_synth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/binless_taste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/ctwmcmc_formal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/directcat_drift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/directcat_synth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/directcat_taste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/directformal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/entropy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/entropy_nsb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/metric_drift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/metric_phase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/metric_synth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/.Thumbnails/metric_taste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/binless_continuous.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/binless_drift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/binless_synth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/binless_taste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/ctwmcmc_formal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/directcat_drift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/directcat_synth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/directcat_taste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/directformal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/entropy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/entropy_nsb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/metric_drift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/metric_phase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/metric_synth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/doc/images/metric_taste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_bub_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_bub_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_chaoshen_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_jack_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_ma_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_nsb_c.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_nsb_mx.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_plugin_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_tpmc_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_tpmc_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_ww_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/entropy_ww_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/variance_boot_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/variance_boot_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/entropy/variance_jack_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/BinlessEmbedComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/BinlessInfoComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/BinlessOpenComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/BinlessWarpComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/binless_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/binless_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/binless_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/binlessembed.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/binlessinfo.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/binlessopen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/binless/binlesswarp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/CTWMCMCSampleComp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/CTWMCMCTreeComp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/ctwmcmc_c.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/ctwmcmc_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/ctwmcmc_mx.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/ctwmcmc_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/ctwmcmcbridge.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/ctwmcmcsample.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/ctwmcmc/ctwmcmctree.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/DirectBinComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/DirectCountComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/direct_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/direct_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/direct_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/directbin.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/directcondcat.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/directcondformal.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/directcondtime.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/directcountclass.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/directcountcond.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/direct/directcounttotal.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/MetricClustComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/MetricDistAllQComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/MetricDistAllQKComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/MetricDistCommonQKComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/MetricDistSingleQComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/MetricDistSingleQKComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/MetricOpenComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/metric_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/metric_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/metric_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/metricclust.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/metricdist.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/info/metric/metricopen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/input/input_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/input/input_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/input/input_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/input/input_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/input/multisitearray.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/input/multisitesubset.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/input/staread.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/license/license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/license/license_afl.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/Entropy1DVecComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/Info2DComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/InfoCondComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/MatrixToHist2DComp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/entropy1d.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/entropy1dvec.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/gen_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/gen_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/gen_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/gen_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/hist_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/hist_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/hist_mx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/hist_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/info2d.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/infocond.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/matrix2hist2d.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/sort_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/sort_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/toolkit_c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix/spike/shared/toolkit_mx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/py.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/Visualize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/distances/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/distances/compute.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/distances/distance_matrix.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/histbi.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/histbi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/histinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/histinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/histjabi.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/histjabi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/histtpbi.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/histtpbi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/tblxbi.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/tblxbi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/tblxinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/tblxinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/entropy/tblxtpbi.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/entropy/tblxtpbi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/metrics/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/metrics/metrics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/model/TemporalClustering.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/model/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/model/distclust.py" beforeDir="false" afterPath="$PROJECT_DIR$/metricspace/model/distclust.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/util/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/util/analysis_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/util/convert_source.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/util/plot_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +257,9 @@
         <option value="Setup Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,23 +275,23 @@
     <option name="showMembers" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/repos/metricspace&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/repos/neuroexplore",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\repos\Metric-Space-Analysis\py\distances" />
@@ -207,6 +428,7 @@
       <workItem from="1685396211467" duration="1301000" />
       <workItem from="1685397542991" duration="4423000" />
       <workItem from="1685407106439" duration="885000" />
+      <workItem from="1685744744157" duration="1658000" />
     </task>
     <task id="LOCAL-00001" summary="separate dirs by functionality">
       <created>1684724203546</created>
@@ -316,7 +538,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/py/distances/compute.py</url>
+          <url>file://$PROJECT_DIR$/metricspace/distances/compute.py</url>
           <line>13</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -332,10 +554,10 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Metric_Space_Analysis$distclust_py.coverage" NAME="distclust_py Coverage Results" MODIFIED="1684711090359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Metric_Space_Analysis$Visualize.coverage" NAME="Visualize Coverage Results" MODIFIED="1684710300383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
-    <SUITE FILE_PATH="coverage/Metric_Space_Analysis$model.coverage" NAME="model Coverage Results" MODIFIED="1684721502317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Metric_Space_Analysis$run.coverage" NAME="run Coverage Results" MODIFIED="1684732931870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Metric_Space_Analysis$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1685301219058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
     <SUITE FILE_PATH="coverage/Metric_Space_Analysis$run__1_.coverage" NAME="run (1) Coverage Results" MODIFIED="1685322570092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
+    <SUITE FILE_PATH="coverage/Metric_Space_Analysis$Visualize.coverage" NAME="Visualize Coverage Results" MODIFIED="1684710300383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
+    <SUITE FILE_PATH="coverage/Metric_Space_Analysis$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1685301219058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
+    <SUITE FILE_PATH="coverage/Metric_Space_Analysis$model.coverage" NAME="model Coverage Results" MODIFIED="1684721502317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
