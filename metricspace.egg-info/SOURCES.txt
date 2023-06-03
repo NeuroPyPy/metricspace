@@ -1,3 +1,4 @@
+LICENSE
 README.md
 setup.py
 metricspace/__init__.py

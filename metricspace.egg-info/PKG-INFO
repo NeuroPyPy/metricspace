@@ -1,7 +1,8 @@
 Metadata-Version: 2.1
 Name: metricspace
-Version: 0.1.1
+Version: 0.3.1
 Summary: Classification algorithm to decode stimuli based on spike distance in metric space, rather than spike rate. Original concept featured in Victor & Purpura 1996. 
 Home-page: https://github.com/NeuroPyPy/metricspace
 Author: Flynn OConnell
 Author-email: FlynnOConnell@gmail.com
+License-File: LICENSE

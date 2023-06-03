@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metricspace"
+version = "0.4.0"
+description = "A python translation of code originally theorized in: Metric-space analysis of spike trains: theory, algorithms, and application Jonathan D. Victor and Keith Purpura Network 8, 127-164 (1997)"
+authors = [
+    {name = "Flynn OConnell", email = "flynnoconnell@gmail.com"},
+    {name = "Jonathan D Victor", email = "jdvicto@med.cornell.edu"}
+]
+readme = "README.md"
+homepage = "https://github.com/NeuroPyPy/metricspace"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+[project.license]
+file = "LICENSE"
+
