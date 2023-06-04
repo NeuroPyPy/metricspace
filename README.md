@@ -37,7 +37,7 @@ The following functions are exposed by this package:
 * `distclust` - Uses spike distance to cluster spike trains for entropy calculations.
 * `tblxinfo` -  Uses the distclust confusion matrix output (probability, not count) to calculate mutual information.
 * `tblxtpbi` - Similar to tblxinfo but with Treves and Panzeri's bias correction.
-* `tblxjabi` - Similar to tblxinfo but with jacknife bias correction.
+* `tblxbi` - Similar to tblxinfo but with jacknife or tp bias correction.
 
 ## Usage
 ```python
