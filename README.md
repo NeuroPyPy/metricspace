@@ -61,6 +61,14 @@ spike_distance_slide = ms.spkd_slide(spike_trains, costs, 10e-3)  # Sliding wind
 spike_train_class_labels = np.concatenate((np.zeros(100), np.ones(100))) # 100 samples in each class, randomly generated
 _, nsam = np.unique(spike_train_class_labels, return_counts=True)
 clustered = ms.distclust(spike_distance, nsam)
+
+# Calculate entropy from the confusion matrix output of distclust
+mi = ms.tblxinfo(clustered)
+mj = ms.tblxjabi(clustered)
+mt = ms.tblxtpbi(clustered)
+mij = mi + mj
+mit = mi + mt
+
 ```
 
 
