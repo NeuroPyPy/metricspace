@@ -1,32 +1,77 @@
 
-## Metric Space Analysis - A Python Implementation 
+# Metric Space Analysis - A Python Implementation 
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=?style=plastic&logo=python&logoColor=ffdd54)
+![Rust](https://img.shields.io/badge/rust-000000?style=?style=plastic&logo=rust&logoColor=white)
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/NeuroPyPy/metricspace/blob/master/LICENSE)
 
 * <a href=https://journals.physiology.org/doi/abs/10.1152/jn.1996.76.2.1310> Nature and precision of temporal coding in visual cortex: a metric-space analysis. Victor & Purpura (1996)</a>
 * <a href="https://www.tandfonline.com/doi/abs/10.1088/0954-898X_8_2_003"> Metric space analysis of spike trains: theory, algorithms and application. Victor & Purpura (1997) </a>
+
 <br>
 
 For a full walkthrough of cost-based metrics, see Jonathon Victor's <a href="http://www-users.med.cornell.edu/~jdvicto/metricdf.html#introduction"> website: </a> 
 
 > Spike trains are considered to be points in an abstract topological space. A spike train metric is a rule which assigns a non-negative number D(Sa,Sb) to pairs of spike trains Sa and Sb which expresses how dissimilar they are.
  
+<br>
+
 This repository hosts a Python implementation of the metric space analysis algorithms with several optimizations:
-* The more computationally intensive functions are implemented in Rust and compiled into a shared library that can be utilized within Python.
-* Vectorized array computation leveraging the power of numpy.
-* Parallelization of independent spike-trains using the multiprocessing library.
+* The more computationally intensive functions are <a href="http://github.com/NeuroPyPy/rs-distances"> implemented in Rust (with benchmarks for matlab, python and rust)</a> and compiled into a shared library that can be utilized within Python.
+* Spike train loops are vectorized, limiting the "auto-vectorization" safety and leveraging th epower of modern AVX2 vector instructions.
+* Parallelization of independent spike-trains using the multiprocessing library (multithreading in the works).
+
+<br>
 
 In addition to the standard approach for spike-distance calculations, this package exposes a modified "sliding window" approach that can be used to calculate spike distances for spike trains of unequal length.
 
+<br>
+
+----
+
 ## Installation
+
+<br>
+
 To install this package, run the following command:
 ```bash
 pip install metricspace
 ```
 **Note**: Be sure to activate a vertual env (penv or conda env) with Python 3.7 or higher before installing this package so that the Rust library can be compiled correctly and has access to your python interpreter.
 
-## Exposed Functions
+<br>
+
+### Installation with pipenv
+
+**Ensure your pip is up-to-date, and confirm activated venv**
+
+| MacOS/Unix                                      | Windows                                            |
+|:------------------------------------------------|:---------------------------------------------------|
+| `python3 -m pip install --upgrade pip`          | `py -m pip install --upgrade pip`                  |
+| `python3 -m pip --version`                      | `py -m pip --version`                              |
+| `python3 -m pip install --user virtualenv`      | `py -m pip install --user virtualenv`              |
+| `python3 -m venv env`                           | `py -m env_metricspace env`                       |
+| `source env/bin/activate`                       | `.\env\Scripts\activate`                           |
+| `.../env/bin/python`                            |                                                     |
+
+**Validate your active interpreter is in your venv and install metricspace**
+
+| MacOS/Unix                                      | Windows                                            |
+|:------------------------------------------------|:---------------------------------------------------|
+| `which python`                                  | `where python`                                     |
+| `.../env/bin/python`                            | `...\env_metricspace\Scripts\python.exe`           |
+| `python3 -m pip install metricspace`            | `py -m pip install metricspace`                    |
+
+<br>
+
+----
+
+
+## Usage
+
+<br>
+
+### Exposed Functions
 The following functions are exposed by this package:
 * `spkd` - Calculates the spike distance between two or more spike trains.
 * `spkd_slide` - Calculates the spike distance between two or more spike trains using a sliding window approach.
@@ -35,7 +80,10 @@ The following functions are exposed by this package:
 * `tblxtpbi` - Similar to tblxinfo but with Treves and Panzeri's bias correction.
 * `tblxbi` - Similar to tblxinfo but with jacknife or tp bias correction.
 
-## Usage
+<br>
+
+### Example
+
 ```python
 import metricspace as ms
 import numpy as np
@@ -67,6 +115,15 @@ mit = mi + mt
 
 ```
 
+<br>
+
+----
+
+<br>
+
+## Contributions
+
+Any contributions, improvements or suggestions are welcome. 
 
 ### Original Developers
 Jonathan D. Victor: jdvicto@med.cornell.edu
