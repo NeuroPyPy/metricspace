@@ -8,7 +8,7 @@
 * <a href="https://www.tandfonline.com/doi/abs/10.1088/0954-898X_8_2_003"> Metric space analysis of spike trains: theory, algorithms and application. Victor & Purpura (1997) </a>
 <br>
 
-For a full walkthrough of cost-based metrics, see Dr. Jonathon Victor's <a href="http://www-users.med.cornell.edu/~jdvicto/metricdf.html#introduction"> website: </a> 
+For a full walkthrough of cost-based metrics, see Jonathon Victor's <a href="http://www-users.med.cornell.edu/~jdvicto/metricdf.html#introduction"> website: </a> 
 
 > Spike trains are considered to be points in an abstract topological space. A spike train metric is a rule which assigns a non-negative number D(Sa,Sb) to pairs of spike trains Sa and Sb which expresses how dissimilar they are.
  
@@ -24,11 +24,7 @@ To install this package, run the following command:
 ```bash
 pip install metricspace
 ```
-or with conda package manager:
-```bash
-conda install -c  metricspace
-```
-**Note**: Be sure to activate your virtual environment with Python 3.7 or higher before installing this package via pip or anaconda so that the Rust library can be compiled correctly and has access to your python interpreter.
+**Note**: Be sure to activate a vertual env (penv or conda env) with Python 3.7 or higher before installing this package so that the Rust library can be compiled correctly and has access to your python interpreter.
 
 ## Exposed Functions
 The following functions are exposed by this package:
