@@ -1,6 +1,6 @@
 LICENSE
 README.md
-setup.py
+pyproject.toml
 metricspace/__init__.py
 metricspace.egg-info/PKG-INFO
 metricspace.egg-info/SOURCES.txt
@@ -19,3 +19,4 @@ metricspace/model/distclust.py
 metricspace/model/spkd.py
 metricspace/model/calculate_spkd/__init__.py
 metricspace/model/calculate_spkd/spkd_functions.py
+metricspace/validate/__init__.py

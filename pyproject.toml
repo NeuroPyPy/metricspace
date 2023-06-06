@@ -12,7 +12,6 @@ authors = [
 ]
 
 readme = "README.md"
-homepage = "https://github.com/NeuroPyPy/metricspace"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Rust",
@@ -22,4 +21,9 @@ classifiers = [
 
 [project.license]
 file = "LICENSE"
+
+[project.urls]
+homepage = "https://github.com/NeuroPyPy/metricspace"
+repository = "https://github.com/NeuroPyPy/metricspace"
+
 
