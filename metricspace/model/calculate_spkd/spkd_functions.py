@@ -9,33 +9,46 @@ spike distance function is being called.
 """
 import numpy as np
 import importlib.util
+import warnings
 from numba import jit
 
-rs_distances_spec = importlib.util.find_spec('rs_distances')
+rs_distances_spec = importlib.util.find_spec("rs_distances")
 
 if rs_distances_spec is not None:
     try:
         import rs_distances
     except ImportError:
-        print('Error during import of rs_distances. Fallback to spkd_v function.')
+        print("Error during import of rs_distances. Fallback to spkd.py.")
         rs_distances = None
 else:
+    print("rs_distances not installed. Fallback to spkd.py.")
     rs_distances = None
 
 
 # Outer Entrypoint -----------------------------------------------------------------------------------------------------
-def calculate_spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | int | None = 1e-4):
+def calculate_spkd(
+    cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | int | None = 1e-2
+):
     """
-       Internal function to compute pairwise spike train distances with variable time precision for multiple cost values.
+    Internal function to compute pairwise spike train distances with variable time precision for multiple cost values.
 
-       Args:
-           cspks (nested iterable[list | np.ndarray]): Each inner list contains spike times for a single spike train.
-           qvals (list of float | int): List of time precision values to use in the computation.
-           res (float, optional): The search resolution of the spike trains. Defaults to 1e-4.
+    Args:
+        cspks (nested iterable[list | np.ndarray]): Each inner list contains spike times for a single spike train.
+        qvals (list of float | int): List of time precision values to use in the computation.
+        res (float, optional): The search resolution of the spike trains. Defaults to 1e-4.
 
-       Returns:
-           ndarray: A 3D array containing pairwise spike train distances for each time precision value.
-       """
+    Returns:
+        ndarray: A 3D array containing pairwise spike train distances for each time precision value.
+
+      Raises:
+             TypeError: If cspks is not a list or numpy array.
+    """
+    if res is not None and res < 0.1:
+        warnings.warn(
+            "Setting a small value for 'res' using the python implementation may result in long computation time.",
+            UserWarning,
+        )
+
     if not isinstance(qvals, np.ndarray):
         # Check if qvals is a numpy array
         qvals = np.array(qvals)
@@ -59,14 +72,20 @@ def calculate_spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, res: floa
                     if res:
                         spk_train_a = spk_train_a + offset
 
-                    outer_diff = np.abs(spk_train_a.reshape(-1, 1) - spk_train_b.reshape(1, -1))
+                    outer_diff = np.abs(
+                        spk_train_a.reshape(-1, 1) - spk_train_b.reshape(1, -1)
+                    )
                     sd = qvals.reshape((-1, 1, 1)) * outer_diff
                     scr = np.zeros((len(qvals), curcounts[xi] + 1, curcounts[xj] + 1))
                     scr[:, 1:, 0] += np.arange(1, curcounts[xi] + 1)
                     scr[:, 0, 1:] += np.arange(1, curcounts[xj] + 1).reshape((1, -1))
 
                     d_current = _compute_spike_distance(scr, sd)
-                    d[xi, xj, :] = np.minimum(d[xi, xj, :], d_current) if offset != -1 else d_current
+                    d[xi, xj, :] = (
+                        np.minimum(d[xi, xj, :], d_current)
+                        if offset != -1
+                        else d_current
+                    )
             else:
                 d[xi, xj, :] = max(curcounts[xi], curcounts[xj])
     return np.maximum(d, np.transpose(d, [1, 0, 2]))
@@ -75,7 +94,7 @@ def calculate_spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, res: floa
 # Check if rs_distances is installed -----------------------------------------------------------------------------------
 def _compute_spike_distance(scr, sd):
     """
-    Compute spike-time distance, using either the rs_distances module (if installed and importable) or
+    Internal. Compute spike-time distance, using either the rs_distances module (if installed and importable) or
     the fallback iterate_spiketrains @jit decorated function.
 
     Args:
@@ -92,9 +111,10 @@ def _compute_spike_distance(scr, sd):
 
 # If rs_distances is installed -----------------------------------------------------------------------------------------
 def _spkd_v_rs(scr, sd):
+    """ This is called if calculate_spkd is run in python, but the vectorization is done in rust."""
     scr = rs_distances.iterate_spiketrains_impl(scr, sd)
     # The last column represents the final values of the accumulated cost of aligning the two spike trains
-    d = np.squeeze(scr[:, -1, -1]).astype('float32')
+    d = np.squeeze(scr[:, -1, -1]).astype("float32")
     return d
 
 
@@ -120,7 +140,7 @@ def _spkd_v(scr, sd):
     scr = _iterate_spiketrains(scr, sd)
 
     # The last column represents the final values of the accumulated cost of aligning the two spike trains
-    d = np.squeeze(scr[:, -1, -1]).astype('float32')
+    d = np.squeeze(scr[:, -1, -1]).astype("float32")
 
     return d
 

@@ -1,0 +1,9 @@
+{
+    "python.condaPath": "C:\\Users\\Flynn\\miniconda3\\Scripts",
+    "python.venvPath": "C:\\Users\\Flynn\\miniconda3\\envs",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none",
+
+}
