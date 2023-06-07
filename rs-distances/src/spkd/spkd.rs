@@ -58,9 +58,9 @@ pub fn calculate_spkd(
 
                 outer_diff.mapv_inplace(|x| x.abs());
 
-                let sd = qvals.clone().into_shape((num_qvals, 1, 1)).unwrap() * &outer_diff;
+                let sd: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> = qvals.clone().into_shape((num_qvals, 1, 1)).unwrap() * &outer_diff;
 
-                let mut scr = Array3::<f64>::zeros((num_qvals, curcounts_xi + 1, curcounts_xj + 1));
+                let mut scr: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> = Array3::<f64>::zeros((num_qvals, curcounts_xi + 1, curcounts_xj + 1));
 
                 scr.slice_mut(s![.., 1.., 0])
                     .assign(&Array2::from_elem((num_qvals, curcounts_xi), 1.0));
