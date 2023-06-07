@@ -1,1 +1,4 @@
+build
+dist
+examples
 metricspace

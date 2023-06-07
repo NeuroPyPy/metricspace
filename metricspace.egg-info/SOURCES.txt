@@ -1,10 +1,12 @@
 LICENSE
 README.md
 pyproject.toml
+examples/ex_distances.py
 metricspace/__init__.py
 metricspace.egg-info/PKG-INFO
 metricspace.egg-info/SOURCES.txt
 metricspace.egg-info/dependency_links.txt
+metricspace.egg-info/requires.txt
 metricspace.egg-info/top_level.txt
 metricspace/entropy/__init__.py
 metricspace/entropy/histbi.py

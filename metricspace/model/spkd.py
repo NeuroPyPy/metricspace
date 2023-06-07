@@ -14,7 +14,9 @@ else:
 
 def spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, use_rs: bool = True):
     """
-    Compute pairwise spike train distances with variable time precision for multiple cost values.
+    Compute pairwise spike train distances with variable time precision for multiple cost values. 
+
+    You can opt out of rust implementaion for easier debugging using the use_rs flag.
 
     Args:
         cspks (nested iterable[list | np.ndarray]): Each inner list contains spike times for a single spike train.
@@ -35,6 +37,9 @@ def spkd_slide(cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | 
     """
     Compute pairwise spike train distances with variable time precision for multiple cost values,
     incorporating sliding of one spike train along the time axis.
+
+    Currently only the python implementation is supported.
+    TODO: Add rust implementation.
 
     Args:
         cspks (nested iterable[list | np.ndarray]): Each inner list contains spike times for a single spike train.

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: metricspace
-Version: 0.6.0
+Version: 0.7.0
 Summary: A python translation of code originally theorized in: Metric-space analysis of spike trains: theory, algorithms, and application Jonathan D. Victor and Keith Purpura Network 8, 127-164 (1997)
 Author-email: Flynn OConnell <flynnoconnell@gmail.com>, Jonathan D Victor <jdvicto@med.cornell.edu>
 License: MIT License
@@ -54,7 +54,7 @@ For a full walkthrough of cost-based metrics, see Jonathon Victor's <a href="htt
 
 This repository hosts a Python implementation of the metric space analysis algorithms with several optimizations:
 * The more computationally intensive functions are <a href="http://github.com/NeuroPyPy/rs-distances"> implemented in Rust (with benchmarks for matlab, python and rust)</a> and compiled into a shared library that can be utilized within Python.
-* Spike train loops are vectorized, limiting the "auto-vectorization" safety and leveraging th epower of modern AVX2 vector instructions.
+* Spike train loops are vectorized, limiting the "auto-vectorization" safety and leveraging the power of modern AVX2 vector instructions.
 * Parallelization of independent spike-trains using the multiprocessing library (multithreading in the works).
 
 <br>
