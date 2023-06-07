@@ -1,0 +1,41 @@
+name: Bump Version
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install toml
+
+      - name: Bump Version
+        run: |
+          CURRENT_VERSION=$(python -c "import toml;print(toml.load('pyproject.toml')['project']['version'])")
+          MAJOR_VERSION=$(echo $CURRENT_VERSION | cut -d. -f1)
+          MINOR_VERSION=$(echo $CURRENT_VERSION | cut -d. -f2)
+          MINOR_VERSION=$((MINOR_VERSION+1))
+          NEW_VERSION="$MAJOR_VERSION.$MINOR_VERSION.0"
+          sed -i "s/version = \"${CURRENT_VERSION}\"/version = \"${NEW_VERSION}\"/g" pyproject.toml
+          echo "Version bumped from $CURRENT_VERSION to $NEW_VERSION"
+
+      - name: Commit and push if it changed
+        run: |
+          git diff
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Bump version number" pyproject.toml || exit 0
+          git push
