@@ -18,7 +18,7 @@ For a full walkthrough of cost-based metrics, see Jonathon Victor's <a href="htt
 
 This repository hosts a Python implementation of the metric space analysis algorithms with several optimizations:
 * The more computationally intensive functions are <a href="http://github.com/NeuroPyPy/rs-distances"> implemented in Rust (with benchmarks for matlab, python and rust)</a> and compiled into a shared library that can be utilized within Python.
-* Spike train loops are vectorized, limiting the "auto-vectorization" safety and leveraging the power of modern AVX2 vector instructions.
+* Spike train loops are vectorized, limiting the numpy "auto-vectorization" safety and leveraging the power of AVX2 vector instructions in modern CPUs.
 * Parallelization of independent spike-trains using the multiprocessing library (multithreading in the works).
 
 <br>
