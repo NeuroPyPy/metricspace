@@ -19,12 +19,12 @@ jobs:
 
       - name: Bump Version
         run: |
-          CURRENT_VERSION=$(python -c "from metricspace.version import __version__; print(__version__)")
+          CURRENT_VERSION=$(python -c "from version import __version__; print(__version__)")
           MAJOR_VERSION=$(echo $CURRENT_VERSION | cut -d. -f1)
           MINOR_VERSION=$(echo $CURRENT_VERSION | cut -d. -f2)
           MINOR_VERSION=$((MINOR_VERSION+1))
           NEW_VERSION="$MAJOR_VERSION.$MINOR_VERSION.0"
-          echo "__version__ = \"$NEW_VERSION\"" > metricspace/version.py
+          echo "__version__ = \"$NEW_VERSION\"" > version.py
           echo "Version bumped from $CURRENT_VERSION to $NEW_VERSION"
 
       - name: Commit and push if it changed
@@ -32,5 +32,5 @@ jobs:
           git diff
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m "Bump version number" metricspace/version.py || exit 0
+          git commit -m "Bump version number" version.py || exit 0
           git push
