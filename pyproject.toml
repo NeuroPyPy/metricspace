@@ -7,7 +7,7 @@ find = {}
 
 [project]
 name = "metricspace"
-version = "0.53.0"
+version = "0.54.0"
 description = "A python translation of code originally theorized in: Metric-space analysis of spike trains: theory, algorithms, and application Jonathan D. Victor and Keith Purpura Network 8, 127-164 (1997)"
 authors = [
     {name = "Flynn OConnell", email = "flynnoconnell@gmail.com"},
