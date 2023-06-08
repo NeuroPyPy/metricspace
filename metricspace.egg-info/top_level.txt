@@ -2,3 +2,4 @@ build
 dist
 examples
 metricspace
+rs-distances

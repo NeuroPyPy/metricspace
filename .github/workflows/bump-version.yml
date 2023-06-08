@@ -6,13 +6,14 @@ on:
       - master
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.workflow_token }}
+          submodules: true
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -33,6 +34,17 @@ jobs:
           NEW_VERSION="$MAJOR_VERSION.$MINOR_VERSION.0"
           sed -i "s/version = \"${CURRENT_VERSION}\"/version = \"${NEW_VERSION}\"/g" pyproject.toml
           echo "Version bumped from $CURRENT_VERSION to $NEW_VERSION"
+
+      - name: Update rs-distances
+        run: |
+          cd rs-distances
+          git pull origin master
+
+      - name: Commit rs-distances update
+        run: |
+          git diff
+          git add rs-distances
+          git commit -m "Update rs-distances submodule" || exit 0
 
       - name: Commit and push if it changed
         run: |
