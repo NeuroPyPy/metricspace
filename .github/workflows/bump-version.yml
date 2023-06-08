@@ -12,7 +12,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.workflow_token }}
+          token: ${{ secrets.workflow }}
           submodules: true
 
       - name: Set up Python
