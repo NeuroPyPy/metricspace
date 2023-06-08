@@ -1,9 +1,17 @@
 
 # Metric Space Analysis - A Python Implementation 
 
+<br>
+
 ![Python](https://img.shields.io/badge/python-3670A0?style=?style=plastic&logo=python&logoColor=ffdd54)
 ![Rust](https://img.shields.io/badge/rust-000000?style=?style=plastic&logo=rust&logoColor=white)
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/NeuroPyPy/metricspace/blob/master/LICENSE)
+[![CI](https://github.com/NeuroPyPy/rs-distances/actions/workflows/CI.yml/badge.svg)](https://github.com/NeuroPyPy/rs-distances/actions/workflows/CI.yml)
+[![implementation](https://img.shields.io/pypi/implementation/metricspace)](https://pypi.org/project/metricspace/)
+[![PyPI version](https://badge.fury.io/py/metricspace.svg)](https://badge.fury.io/py/metricspace)
+[![PyPI format](https://img.shields.io/pypi/format/metricspace.svg)](https://pypi.python.org/pypi/metricspace/)
+
+<br>
 
 * <a href=https://journals.physiology.org/doi/abs/10.1152/jn.1996.76.2.1310> Nature and precision of temporal coding in visual cortex: a metric-space analysis. Victor & Purpura (1996)</a>
 * <a href="https://www.tandfonline.com/doi/abs/10.1088/0954-898X_8_2_003"> Metric space analysis of spike trains: theory, algorithms and application. Victor & Purpura (1997) </a>
