@@ -1,6 +1,6 @@
 use ndarray::Array2;
 use ndarray::{s, Array1, Array3, ArrayBase, ArrayView3, Dim, OwnedRepr};
-use numpy::{IntoPyArray, PyArray1, PyArray3};
+use numpy::{IntoPyArray, PyArray1};
 use pyo3::{prelude::*, types::PyList};
 
 pub fn iterate_spiketrains(scr: &mut Array3<f64>, sd: &ArrayView3<f64>) {
@@ -18,27 +18,10 @@ pub fn iterate_spiketrains(scr: &mut Array3<f64>, sd: &ArrayView3<f64>) {
     }
 }
 
-#[pyfunction]
-fn iterate_spiketrains_impl(
-    py: Python,
-    scr: &PyArray3<f64>,
-    sd: &PyArray3<f64>,
-) -> PyResult<PyObject> {
-    let mut scr: Array3<f64> = scr.to_owned_array();
-    let sd: Array3<f64> = sd.to_owned_array();
-
-    iterate_spiketrains(&mut scr, &sd.view());
-
-    // Convert the result to a PyArray
-    let res: Py<numpy::PyArray<f64, Dim<[usize; 3]>>> = scr.into_pyarray(py).to_owned();
-    Ok(res.into())
-}
-
-pub fn calculate_spkd(
+pub fn calculate_spkd_impl(
     cspks: &Vec<Array1<f64>>,
     qvals: &ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>>,
     num_vectors: usize,
-    _res: Option<f64>,
 ) -> ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> {
     let numt: usize = num_vectors; // number of spike trains
     let num_qvals: usize = qvals.len(); // number of q values
@@ -58,9 +41,10 @@ pub fn calculate_spkd(
 
                 outer_diff.mapv_inplace(|x| x.abs());
 
-                let sd: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> = qvals.clone().into_shape((num_qvals, 1, 1)).unwrap() * &outer_diff;
-
-                let mut scr: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> = Array3::<f64>::zeros((num_qvals, curcounts_xi + 1, curcounts_xj + 1));
+                let sd: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> =
+                    qvals.clone().into_shape((num_qvals, 1, 1)).unwrap() * &outer_diff.clone();
+                let mut scr: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> =
+                    Array3::<f64>::zeros((num_qvals, curcounts_xi + 1, curcounts_xj + 1));
 
                 scr.slice_mut(s![.., 1.., 0])
                     .assign(&Array2::from_elem((num_qvals, curcounts_xi), 1.0));
@@ -93,12 +77,7 @@ pub fn calculate_spkd(
 }
 
 #[pyfunction]
-fn calculate_spkd_impl(
-    py: Python,
-    cspks: &PyList,
-    qvals: &PyArray1<f64>,
-    res: Option<f64>,
-) -> PyResult<PyObject> {
+fn calculate_spkd(py: Python, cspks: &PyList, qvals: &PyArray1<f64>) -> PyResult<PyObject> {
     let mut cspk_vectors: Vec<Array1<f64>> = Vec::new();
     let mut num_vectors: usize = 0;
 
@@ -106,7 +85,7 @@ fn calculate_spkd_impl(
     for pyarray in cspks.iter() {
         let numpy_array: &PyArray1<f64> = pyarray.extract()?;
         let array: Array1<f64> = numpy_array.to_owned_array();
-        let shape = array.shape();
+        let shape: &[usize] = array.shape();
 
         if shape.is_empty() || shape[0] == 0 {
             continue; // Skip empty arrays
@@ -121,9 +100,8 @@ fn calculate_spkd_impl(
     let q_reshaped: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> =
         qvals.into_shape((numqvals, 1, 1)).unwrap();
 
-    // Assume calculate_spkd returns ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>>
     let d: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> =
-        calculate_spkd(&cspk_vectors, &q_reshaped, num_vectors, res);
+        calculate_spkd_impl(&cspk_vectors, &q_reshaped, num_vectors);
 
     // Convert the ArrayBase to a PyArray
     let py_array: &numpy::PyArray<f64, Dim<[usize; 3]>> = d.into_pyarray(py);
@@ -134,10 +112,7 @@ fn calculate_spkd_impl(
 
 #[pymodule]
 fn rs_distances(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_wrapped(wrap_pyfunction!(calculate_spkd_impl))
-        .unwrap();
-    m.add_wrapped(wrap_pyfunction!(iterate_spiketrains_impl))
-        .unwrap();
+    m.add_wrapped(wrap_pyfunction!(calculate_spkd)).unwrap();
     Ok(())
 }
 
@@ -150,6 +125,7 @@ mod tests {
     use std::env;
 
     #[test]
+    #[allow(dead_code)]
     fn test_calculate_spkd() {
         env::set_var("RUST_LOG", "debug");
         Builder::new().filter_level(LevelFilter::Debug).init();
@@ -168,5 +144,7 @@ mod tests {
         let q_reshaped = qvals.into_shape((numqvals, 1, 1)).unwrap();
 
         // calculate_spkd(&mut mock_data, &q_reshaped, Option::None);
+
+        !todo!();
     }
 }
