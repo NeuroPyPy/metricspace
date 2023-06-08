@@ -1,0 +1,11 @@
+C:\repos\metricspace\rs-distances\target\debug\deps\console-bd28d5e7f2f4c1f8.rmeta: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\common_term.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\kb.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\term.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\utils.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\windows_term\mod.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\ansi.rs
+
+C:\repos\metricspace\rs-distances\target\debug\deps\console-bd28d5e7f2f4c1f8.d: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\common_term.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\kb.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\term.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\utils.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\windows_term\mod.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\ansi.rs
+
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\lib.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\common_term.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\kb.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\term.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\utils.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\windows_term\mod.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\console-0.15.7\src\ansi.rs:

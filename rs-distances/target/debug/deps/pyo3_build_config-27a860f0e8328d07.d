@@ -1,0 +1,13 @@
+C:\repos\metricspace\rs-distances\target\debug\deps\pyo3_build_config-27a860f0e8328d07.rmeta: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\errors.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\impl_.rs C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config-file.txt C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config.txt
+
+C:\repos\metricspace\rs-distances\target\debug\deps\libpyo3_build_config-27a860f0e8328d07.rlib: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\errors.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\impl_.rs C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config-file.txt C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config.txt
+
+C:\repos\metricspace\rs-distances\target\debug\deps\pyo3_build_config-27a860f0e8328d07.d: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\errors.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\impl_.rs C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config-file.txt C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config.txt
+
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\lib.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\errors.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\pyo3-build-config-0.19.0\src\impl_.rs:
+C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config-file.txt:
+C:\repos\metricspace\rs-distances\target\debug\build\pyo3-build-config-2df8072a90558a82\out/pyo3-build-config.txt:
+
+# env-dep:OUT_DIR=C:\\repos\\metricspace\\rs-distances\\target\\debug\\build\\pyo3-build-config-2df8072a90558a82\\out

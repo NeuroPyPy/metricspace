@@ -1,0 +1,12 @@
+C:\repos\metricspace\rs-distances\target\debug\deps\fs_err-3cc1cc5e621cbab9.rmeta: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\dir.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\errors.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\file.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\open_options.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\os.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\os\windows.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\path.rs
+
+C:\repos\metricspace\rs-distances\target\debug\deps\fs_err-3cc1cc5e621cbab9.d: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\dir.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\errors.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\file.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\open_options.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\os.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\os\windows.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\path.rs
+
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\lib.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\dir.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\errors.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\file.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\open_options.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\os.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\os\windows.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fs-err-2.9.0\src\path.rs:

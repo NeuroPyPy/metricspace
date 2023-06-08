@@ -1,0 +1,13 @@
+C:\repos\metricspace\rs-distances\target\debug\deps\semver-8a5bc4f8c86b6828.rmeta: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\backport.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\display.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\error.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\eval.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\identifier.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\impls.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\parse.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\serde.rs
+
+C:\repos\metricspace\rs-distances\target\debug\deps\semver-8a5bc4f8c86b6828.d: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\backport.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\display.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\error.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\eval.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\identifier.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\impls.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\parse.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\serde.rs
+
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\lib.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\backport.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\display.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\error.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\eval.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\identifier.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\impls.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\parse.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\semver-1.0.17\src\serde.rs:

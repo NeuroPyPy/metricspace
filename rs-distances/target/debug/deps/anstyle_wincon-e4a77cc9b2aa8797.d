@@ -1,0 +1,11 @@
+C:\repos\metricspace\rs-distances\target\debug\deps\anstyle_wincon-e4a77cc9b2aa8797.rmeta: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\console.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lockable.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\stream.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\windows.rs
+
+C:\repos\metricspace\rs-distances\target\debug\deps\libanstyle_wincon-e4a77cc9b2aa8797.rlib: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\console.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lockable.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\stream.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\windows.rs
+
+C:\repos\metricspace\rs-distances\target\debug\deps\anstyle_wincon-e4a77cc9b2aa8797.d: C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lib.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\console.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lockable.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\stream.rs C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\windows.rs
+
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lib.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\console.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\lockable.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\stream.rs:
+C:\Users\Flynn\.cargo\registry\src\index.crates.io-6f17d22bba15001f\anstyle-wincon-1.0.1\src\windows.rs:
