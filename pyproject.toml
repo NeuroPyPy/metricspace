@@ -14,7 +14,7 @@ authors = [
     {name = "Jonathan D Victor", email = "jdvicto@med.cornell.edu"}
 ]
 
-dependencies = ["setuptools>=40.8.0", "wheel"]
+dependencies = ["setuptools>=40.8.0", "wheel", "rs-distances"]
 
 readme = "README.md"
 requires-python = ">=3.7"
