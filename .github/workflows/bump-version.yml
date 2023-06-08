@@ -12,7 +12,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.workflow_token }}
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -40,4 +40,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Bump version number" pyproject.toml || exit 0
-          git push
+          git push origin HEAD:master
