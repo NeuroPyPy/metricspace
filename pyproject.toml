@@ -7,7 +7,6 @@ find = {}
 
 [project]
 name = "metricspace"
-dynamic = ["version"]
 description = "A python translation of code originally theorized in: Metric-space analysis of spike trains: theory, algorithms, and application Jonathan D. Victor and Keith Purpura Network 8, 127-164 (1997)"
 authors = [
     {name = "Flynn OConnell", email = "flynnoconnell@gmail.com"},
@@ -15,7 +14,7 @@ authors = [
 ]
 
 dependencies = ["setuptools>=40.8.0", "wheel", "rs-distances"]
-
+dev-dependencies = ["bumpver"]
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -39,5 +38,9 @@ homepage = "https://github.com/NeuroPyPy/metricspace"
 repository = "https://github.com/NeuroPyPy/metricspace"
 documentation = "http://www-users.med.cornell.edu/~jdvicto/metricdf.html#algorithm"
 
-[tool.setuptools.dynamic]
-version = {path = "metricspace/version.py", format = "python"}
+[tool.bumpver]
+current_version = "0.7.0"
+version_pattern = "{pycalver}"
+commit = true
+tag = true
+push = false
