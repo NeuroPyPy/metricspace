@@ -35,4 +35,4 @@ jobs:
           git commit -m "Bump version number" version.py || exit 0
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW }}
