@@ -3,9 +3,15 @@ use ndarray::{s, Array1, Array3, ArrayBase, ArrayView3, Dim, OwnedRepr};
 use numpy::{IntoPyArray, PyArray1};
 use pyo3::{prelude::*, types::PyList};
 
+// Function: _compute_spiketrain_distance()
+//
+// Calls: None
+//
 // Most of our performance boost comes from this calculation which is the
 // computation of pairwise distances between two spike trains.
-pub fn iterate_spiketrains(scr: &mut Array3<f64>, sd: &ArrayView3<f64>) {
+//
+// This function computes the pairwise distance between two spike-trains.
+fn _compute_spiketrain_distance(scr: &mut Array3<f64>, sd: &ArrayView3<f64>) {
     let (num_qvals, num_spikes_xii, num_spikes_xjj) = scr.dim();
     // First spike train
     for xii in 1..num_spikes_xii {
@@ -22,7 +28,15 @@ pub fn iterate_spiketrains(scr: &mut Array3<f64>, sd: &ArrayView3<f64>) {
     }
 }
 
-pub fn calculate_pairwise_distances(
+// Function: _iterate_spiketrain_pairs()
+//
+// Calls: _compute_spiketrain_distance()
+//
+// This function computes the pairwise distances between all the spike trains.
+//
+// Calls _compute_spiketrain_distance(&scr, &sd) to compute the pairwise distances.
+// for each spike-train.
+fn _iterate_spiketrain_pairs(
     numt: usize,
     cspks: &Vec<Array1<f64>>,
     qvals: &ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>>,
@@ -51,7 +65,7 @@ pub fn calculate_pairwise_distances(
                 scr.slice_mut(s![.., 0, 1..])
                     .assign(&Array2::from_elem((num_qvals, curcounts_xj), 1.0));
 
-                iterate_spiketrains(&mut scr, &sd.view());
+                _compute_spiketrain_distance(&mut scr, &sd.view());
 
                 let final_values: Array1<f64> = Array1::from_shape_vec(
                     num_qvals,
@@ -71,12 +85,51 @@ pub fn calculate_pairwise_distances(
     }
 }
 
+// Function: _calculate_spkd_impl()
+//
+// Calls: _iterate_spiketrain_pairs()
+//
+// Initialize arrays to start the iteration and properly orient returned matrix.
+// The final resulting d matrix should contain 0's on the diagonal and the
+// upper triangular matrix should be the same as the lower triangular matrix.
+// Separate out this functionaliity for future use with multiprocessing.
+fn _calculate_spkd_impl(
+    cspks: &Vec<Array1<f64>>,
+    qvals: &ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>>,
+    num_qvals: usize,
+    num_vectors: usize,
+) -> ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> {
+    let numt: usize = num_vectors; // number of spike trains
+
+    let mut d: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> =
+        Array3::<f64>::zeros((numt, numt, num_qvals));
+
+    _iterate_spiketrain_pairs(numt, cspks, qvals, num_qvals, &mut d);
+
+    // Orient and mirror the matrix on the 1st and 2nd axes diagonal
+    d = d.permuted_axes([1, 0, 2]);
+    d.mapv_inplace(|x| x.max(0.0));
+    d
+}
+
 #[pyfunction]
-fn calculate_spkd(py: Python, cspks: &PyList, qvals: &PyArray1<f64>) -> PyResult<PyObject> {
+// Function: _calculate_spkd_rust()
+//
+// Calls: _calculate_spkd_impl()
+//
+// Entry point for the calculate_spkd function.
+//
+// Format input arrays from python into rust-friendly types and call the
+// _calculate_spkd_impl function to do the actual computation.
+pub fn _calculate_spkd_rust(
+    py: Python,
+    cspks: &PyList,
+    qvals: &PyArray1<f64>,
+) -> PyResult<PyObject> {
     let mut cspk_vectors: Vec<Array1<f64>> = Vec::new();
     let mut num_vectors: usize = 0;
 
-    // Convert the PyList to a Vec<Array1<f64>> to simulate the python 
+    // Convert the PyList to a Vec<Array1<f64>> to simulate the python
     // equivalent of a list of numpy arrays
     for pyarray in cspks.iter() {
         let numpy_array: &PyArray1<f64> = pyarray.extract()?;
@@ -96,7 +149,7 @@ fn calculate_spkd(py: Python, cspks: &PyList, qvals: &PyArray1<f64>) -> PyResult
         qvals.into_shape((numqvals, 1, 1)).unwrap();
 
     let d: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> =
-        calculate_spkd_impl(&cspk_vectors, &q_reshaped, numqvals, num_vectors);
+        _calculate_spkd_impl(&cspk_vectors, &q_reshaped, numqvals, num_vectors);
 
     // Convert the ArrayBase to a PyArray
     let py_array: &numpy::PyArray<f64, Dim<[usize; 3]>> = d.into_pyarray(py);
@@ -105,28 +158,10 @@ fn calculate_spkd(py: Python, cspks: &PyList, qvals: &PyArray1<f64>) -> PyResult
     Ok(py_array.to_object(py))
 }
 
-pub fn calculate_spkd_impl(
-    cspks: &Vec<Array1<f64>>,
-    qvals: &ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>>,
-    num_qvals: usize,
-    num_vectors: usize,
-) -> ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> {
-    let numt: usize = num_vectors; // number of spike trains
-
-    let mut d: ArrayBase<OwnedRepr<f64>, Dim<[usize; 3]>> =
-        Array3::<f64>::zeros((numt, numt, num_qvals));
-
-    calculate_pairwise_distances(numt, cspks, qvals, num_qvals, &mut d);
-
-    // Transpose d
-    d = d.permuted_axes([1, 0, 2]);
-    d.mapv_inplace(|x| x.max(0.0));
-    d
-}
-
 #[pymodule]
-fn rs_distances(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_wrapped(wrap_pyfunction!(calculate_spkd)).unwrap();
+fn _spkd_rs(_py: Python, m: &PyModule) -> PyResult<()> {
+    m.add_wrapped(wrap_pyfunction!(_calculate_spkd_rust))
+        .unwrap();
     Ok(())
 }
 

@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
-name = "rs_distances"
+name = "metricspace"
 crate-type = ["cdylib"]
 
 [dependencies]
@@ -16,3 +16,6 @@ maturin = "1.0.1"
 log = "0.4.14"
 env_logger = "0.9"
 rayon = "1.5.1"
+
+[package.metadata.maturin]
+python-source = "metricspace"
