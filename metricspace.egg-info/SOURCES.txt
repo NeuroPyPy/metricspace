@@ -1,6 +1,7 @@
 LICENSE
 README.md
 pyproject.toml
+docs/source/conf.py
 examples/ex_distances.py
 metricspace/__init__.py
 metricspace.egg-info/PKG-INFO
