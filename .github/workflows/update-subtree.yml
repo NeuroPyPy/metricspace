@@ -21,7 +21,7 @@ jobs:
 
     - name: Update Subtree
       run: |
-        git subtree pull --prefix=rs-distances https://github.com/NeuroPyPy/rs-distances.git master 
+        git subtree pull --allow-unrelated-histories --prefix=rs-distances https://github.com/NeuroPyPy/rs-distances.git master 
 
     - name: Commit and Push Changes
       run: |
