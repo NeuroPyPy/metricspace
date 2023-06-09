@@ -1,9 +1,6 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools.packages]
-find = {} 
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
 
 [project]
 version = "1.1.0"
@@ -14,13 +11,12 @@ authors = [
     {name = "Jonathan D Victor", email = "jdvicto@med.cornell.edu"}
 ]
 
-dependencies = ["setuptools>=40.8.0", "wheel", "rs-distances", "numba", "numpy"]
-
+dependencies = ["setuptools>=40.8.0", "wheel", "numba>=0.57.0", "numpy>=1.24.3"]
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
     "License :: OSI Approved :: MIT License",
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "Operating System :: OS Independent",
@@ -33,6 +29,22 @@ classifiers = [
 
 [project.license]
 file = "LICENSE"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+
+[package]
+version = "1.2.0"
+edition = "2023"
+
+[package.metadata.maturin]
+rust-version = "1.56.0"
+requires-dist = ["numpy"]
+
+[package.metadata.maturin.dependencies]
+ndarray = "0.15.4"
+numpy = "0.14.1"
+pyo3 = { version = "0.15.1", features = ["extension-module"] }
 
 
 [project.urls]
