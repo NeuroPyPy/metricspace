@@ -1,0 +1,3 @@
+[submodule "rs-distances"]
+	path = rs-distances
+	url = https://github.com/NeuroPyPy/rs-distances.git
