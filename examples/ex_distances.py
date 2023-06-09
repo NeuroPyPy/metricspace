@@ -21,7 +21,5 @@ clustered = ms.distclust(spike_distance, nsam)
 
 # Calculate entropy from the confusion matrix output of distclust
 mi = ms.tblxinfo(clustered)
-mj = ms.tblxjabi(clustered)
 mt = ms.tblxtpbi(clustered)
-mij = mi + mj
 mit = mi + mt
