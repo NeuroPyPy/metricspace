@@ -1,16 +1,6 @@
 import numpy as np
 from .calculate_spkd import spkd_functions
-import importlib
-rs_distances_spec = importlib.util.find_spec('rs_distances')
-
-if rs_distances_spec is not None:
-    try:
-        import rs_distances
-    except ImportError:
-        print('Error during import of rs_distances. Fallback to spkd_v function.')
-        rs_distances = None
-else:
-    rs_distances = None
+import rust_metricspace
 
 def spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, use_rs: bool = True):
     """
@@ -26,7 +16,7 @@ def spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, use_rs: bool = True
     Returns:
         ndarray: A 3D array containing pairwise spike train distances for each time precision value.
     """
-    if rs_distances is not None and use_rs:
+    if use_rs:
         d = rs_distances.calculate_spkd(cspks, qvals)
         return np.maximum(d, np.transpose(d, [1, 0, 2]))
     else:
