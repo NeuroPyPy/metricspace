@@ -13,7 +13,9 @@ authors = [
     {name = "Flynn OConnell", email = "flynnoconnell@gmail.com"},
     {name = "Jonathan D Victor", email = "jdvicto@med.cornell.edu"}
 ]
-dependencies = ["setuptools>=40.8.0", "wheel", "rs-distances"]
+
+dependencies = ["setuptools>=40.8.0", "wheel", "rs-distances", "numba", "numpy"]
+
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -31,6 +33,7 @@ classifiers = [
 
 [project.license]
 file = "LICENSE"
+
 
 [project.urls]
 homepage = "https://github.com/NeuroPyPy/metricspace"
