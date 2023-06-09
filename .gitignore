@@ -1,13 +1,27 @@
+# Python
 __pycache__/
-.vscode/
-.idea/
-venv/
 *.py[cod]
 *.egg-info/
 dist/
 build/
 *.egg
 *.so
+*.whl
+
+# Jupyter
+.ipynb_checkpoints
+
+# Rust
+target/
+**/*.rs.bk
+
+# Maturin
+dist/
+
+# Environment and system files
+.venv/
+.vscode/
+.idea/
 *.o
 *.a
 *.dll
@@ -17,10 +31,8 @@ build/
 *.lib
 *.pxd
 *.pxi
-*.whl
 *.exe
 *.prof
-.ipynb_checkpoints
 .DS_Store
 *.swp
 *.swo

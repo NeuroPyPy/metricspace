@@ -1117,6 +1117,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "metricspace"
+version = "1.2.0"
+dependencies = [
+ "env_logger",
+ "log",
+ "maturin",
+ "ndarray",
+ "numpy",
+ "pyo3",
+ "rayon",
+]
+
+[[package]]
 name = "mime"
 version = "0.3.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1671,19 +1684,6 @@ dependencies = [
  "untrusted",
  "web-sys",
  "winapi",
-]
-
-[[package]]
-name = "rs-distances"
-version = "1.0.0"
-dependencies = [
- "env_logger",
- "log",
- "maturin",
- "ndarray",
- "numpy",
- "pyo3",
- "rayon",
 ]
 
 [[package]]
