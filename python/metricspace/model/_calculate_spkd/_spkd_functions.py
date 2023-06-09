@@ -12,21 +12,9 @@ import importlib.util
 import warnings
 from numba import jit
 
-rs_distances_spec = importlib.util.find_spec("rs_distances")
 
-if rs_distances_spec is not None:
-    try:
-        import rs_distances
-    except ImportError:
-        print("Error during import of rs_distances. Fallback to spkd.py.")
-        rs_distances = None
-else:
-    print("rs_distances not installed. Fallback to spkd.py.")
-    rs_distances = None
-
-
-# Outer Entrypoint -----------------------------------------------------------------------------------------------------
-def calculate_spkd(
+# Outer Entrypoint for Python Implementation -----------------------------------------------------------------------------------------------------
+def _calculate_spkd_py(
     cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | int | None = 1e-2
 ):
     """
@@ -91,34 +79,6 @@ def calculate_spkd(
     return np.maximum(d, np.transpose(d, [1, 0, 2]))
 
 
-# Check if rs_distances is installed -----------------------------------------------------------------------------------
-def _compute_spike_distance(scr, sd):
-    """
-    Internal. Compute spike-time distance, using either the rs_distances module (if installed and importable) or
-    the fallback iterate_spiketrains @jit decorated function.
-
-    Args:
-        scr, sd: Input arguments for the distance computation function.
-
-    Returns:
-        numpy.ndarray: The result of the spike-time distance computation.
-    """
-    if rs_distances is not None:
-        return _spkd_v_rs(scr, sd)
-    else:
-        return _spkd_v(scr, sd)
-
-
-# If rs_distances is installed -----------------------------------------------------------------------------------------
-def _spkd_v_rs(scr, sd):
-    """ This is called if calculate_spkd is run in python, but the vectorization is done in rust."""
-    scr = rs_distances.iterate_spiketrains_impl(scr, sd)
-    # The last column represents the final values of the accumulated cost of aligning the two spike trains
-    d = np.squeeze(scr[:, -1, -1]).astype("float32")
-    return d
-
-
-# If rs_distances not installed ----------------------------------------------------------------------------------------
 def _spkd_v(scr, sd):
     """
     Compute spike-time distance.
@@ -137,7 +97,7 @@ def _spkd_v(scr, sd):
         numpy.ndarray: A 1D array representing the spike-time distances.
     """
     # Need to separate this iteration for compatibility with numba
-    scr = _iterate_spiketrains(scr, sd)
+    scr = _calculate_spiketrain_distance_py(scr, sd)
 
     # The last column represents the final values of the accumulated cost of aligning the two spike trains
     d = np.squeeze(scr[:, -1, -1]).astype("float32")
@@ -146,7 +106,7 @@ def _spkd_v(scr, sd):
 
 
 @jit(nopython=True, fastmath=True)
-def _iterate_spiketrains(scr, sd):
+def _compute_spiketrain_distance_py(scr, sd):
     """
     Perform an iteration over 2D slices of the 3D scr and sd arrays.
 

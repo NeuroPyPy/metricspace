@@ -1,5 +1,5 @@
 import numpy as np
-from .calculate_spkd import spkd_functions
+from ._calculate_spkd import _spkd_functions
 import rust_metricspace
 
 def spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, use_rs: bool = True):
@@ -17,10 +17,10 @@ def spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, use_rs: bool = True
         ndarray: A 3D array containing pairwise spike train distances for each time precision value.
     """
     if use_rs:
-        d = rs_distances.calculate_spkd(cspks, qvals)
+        d = rust_metricspace._calculate_spkd(cspks, qvals)
         return np.maximum(d, np.transpose(d, [1, 0, 2]))
     else:
-        return spkd_functions.calculate_spkd(cspks, qvals, None)
+        return _spkd_functions._calculate_spkd(cspks, qvals, None)
 
 
 def spkd_slide(cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | int = 1e-3):
@@ -39,4 +39,4 @@ def spkd_slide(cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | 
     Returns:
         ndarray: A ND array containing pairwise spike train distances where N=len(costs), for each time precision value.
     """
-    return spkd_functions.calculate_spkd(cspks, qvals, res)
+    return _spkd_functions._calculate_spkd(cspks, qvals, res)
