@@ -1,11 +1,11 @@
 
-# Metric Space Analysis - A Python Implementation 
+# Metric Space Analysis - A Python & Rust Implementation 
 
 <br>
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=?style=plastic&logo=python&logoColor=ffdd54)
 ![Rust](https://img.shields.io/badge/rust-000000?style=?style=plastic&logo=rust&logoColor=white)
-[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/NeuroPyPy/metricspace/blob/master/LICENSE)
+![GitHub](https://img.shields.io/github/license/NeuroPyPy/metricspace?style=plastic)
 [![CI](https://github.com/NeuroPyPy/rs-distances/actions/workflows/CI.yml/badge.svg)](https://github.com/NeuroPyPy/rs-distances/actions/workflows/CI.yml)
 [![implementation](https://img.shields.io/pypi/implementation/metricspace)](https://pypi.org/project/metricspace/)
 [![PyPI version](https://badge.fury.io/py/metricspace.svg)](https://badge.fury.io/py/metricspace)
@@ -124,6 +124,30 @@ mit = mi + mt
 ```
 
 <br>
+
+----
+
+## Performance
+The functions provided in this package are written in Rust and compiled into a shared library that can be utilized within Python. This approach is intended to boost the computational efficiency of metric space analysis operations.
+
+Below is a comparative performance table of the spike-train iterator function implemented in Matlab, Python, and Rust. It should be noted that the Matlab version is not optimized using MEX (which would be comparable to Python's numba @jit), and the translations from Matlab to Python to Rust are not exact 1:1.
+
+| Spike-train iterator   | Matlab  | Python  | Rust   |
+| ---------------------- | ------- | ------- | ------ |
+| `raw function`         | 30.235s | 64.992s | 2.028s |
+| `with numba @jit`      | 30.235s | 25.119s | 2.028s |
+| `with @jit + parralel` | 24.050s | 18.067s | 0.945s |
+
+<br>
+
+## Advantages of Rust Implementation 
+Array manipulations, particularly those performed within computationally intensive tasks, are highly sensitive to memory allocation and cleanup. Rust, with its ownership model and automatic memory management, excels in this area. Rust automatically reclaims the memory when an object (like an array or a slice) goes out of scope. This is a stark contrast to languages like Python, where a garbage collector is relied upon to perform memory cleanup. This difference provides Rust implementations with a distinct edge in performance, which is reflected in the comparative analysis shown above.
+
+With these Rust implementations, you can achieve the high-level expressiveness of Python while benefiting from the superior performance and efficiency of Rust.
+
+
+<br>
+
 
 ----
 
