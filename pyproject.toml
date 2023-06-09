@@ -32,6 +32,7 @@ file = "LICENSE"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
+python-source = "python"
 
 [package]
 version = "1.2.0"
