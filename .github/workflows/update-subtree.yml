@@ -1,8 +1,8 @@
-name: Update rs-distances Subtree
+name: Update rs-distances Submodule
 
 on: 
   push:
-    branches:
+    branches: 
       - master
       - dev
 
@@ -12,18 +12,23 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3
-      
-    - name: Setup User
+      uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+
+    - name: Setup Git User
       run: |
         git config --global user.name "GitHub Actions Bot"
         git config --global user.email "FlynnOConnell@gmail.com"
 
-    - name: Update Subtree
+    - name: Update rs-distances Submodule
       run: |
-        git subtree pull --allow-unrelated-histories --prefix=rs-distances https://github.com/NeuroPyPy/rs-distances.git master 
+        cd rs-distances
+        git checkout master
+        git pull origin master
+        cd ..
+        git commit -am "Updated rs-distances submodule"
 
-    - name: Commit and Push Changes
+    - name: Push Changes
       run: |
-        git commit -am "Updated rs-distances subtree with workflow"
         git push
