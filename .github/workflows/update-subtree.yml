@@ -1,0 +1,27 @@
+name: Update rs-distances Subtree
+
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      
+    - name: Setup User
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "FlynnOConnell@gmail.com"
+
+    - name: Update Subtree
+      run: |
+        git subtree pull --prefix=rs-distances https://github.com/NeuroPyPy/rs-distances.git master --squash
+
+    - name: Commit and Push Changes
+      run: |
+        git commit -am "Updated rs-distances subtree with workflow"
+        git push

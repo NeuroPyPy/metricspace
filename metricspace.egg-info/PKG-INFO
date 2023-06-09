@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: metricspace
-Version: 0.7.0
+Version: 1.1.0
 Summary: A python translation of code originally theorized in: Metric-space analysis of spike trains: theory, algorithms, and application Jonathan D. Victor and Keith Purpura Network 8, 127-164 (1997)
 Author-email: Flynn OConnell <flynnoconnell@gmail.com>, Jonathan D Victor <jdvicto@med.cornell.edu>
 License: MIT License
@@ -27,9 +27,17 @@ License: MIT License
         
 Project-URL: homepage, https://github.com/NeuroPyPy/metricspace
 Project-URL: repository, https://github.com/NeuroPyPy/metricspace
+Project-URL: documentation, http://www-users.med.cornell.edu/~jdvicto/metricdf.html#algorithm
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Rust
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
 License-File: LICENSE
@@ -37,9 +45,17 @@ License-File: LICENSE
 
 # Metric Space Analysis - A Python Implementation 
 
+<br>
+
 ![Python](https://img.shields.io/badge/python-3670A0?style=?style=plastic&logo=python&logoColor=ffdd54)
 ![Rust](https://img.shields.io/badge/rust-000000?style=?style=plastic&logo=rust&logoColor=white)
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/NeuroPyPy/metricspace/blob/master/LICENSE)
+[![CI](https://github.com/NeuroPyPy/rs-distances/actions/workflows/CI.yml/badge.svg)](https://github.com/NeuroPyPy/rs-distances/actions/workflows/CI.yml)
+[![implementation](https://img.shields.io/pypi/implementation/metricspace)](https://pypi.org/project/metricspace/)
+[![PyPI version](https://badge.fury.io/py/metricspace.svg)](https://badge.fury.io/py/metricspace)
+[![PyPI format](https://img.shields.io/pypi/format/metricspace.svg)](https://pypi.python.org/pypi/metricspace/)
+
+<br>
 
 * <a href=https://journals.physiology.org/doi/abs/10.1152/jn.1996.76.2.1310> Nature and precision of temporal coding in visual cortex: a metric-space analysis. Victor & Purpura (1996)</a>
 * <a href="https://www.tandfonline.com/doi/abs/10.1088/0954-898X_8_2_003"> Metric space analysis of spike trains: theory, algorithms and application. Victor & Purpura (1997) </a>
