@@ -2,9 +2,7 @@ name: Update rs-distances Submodule
 
 on: 
   push:
-    branches: 
-      - master
-      - dev
+    branches: [ main ]
 
 jobs:
   update:
@@ -19,7 +17,7 @@ jobs:
     - name: Setup Git User
       run: |
         git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "FlynnOConnell@gmail.com"
+        git config --global user.email "<your-email>"
 
     - name: Update rs-distances Submodule
       run: |
@@ -27,7 +25,7 @@ jobs:
         git checkout master
         git pull origin master
         cd ..
-        git commit -am "Updated rs-distances submodule"
+        git diff --cached --exit-code || git commit -am "Updated rs-distances submodule"
 
     - name: Push Changes
       run: |
