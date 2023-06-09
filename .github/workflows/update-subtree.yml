@@ -21,7 +21,7 @@ jobs:
 
     - name: Update Subtree
       run: |
-        git subtree pull --prefix=rs-distances https://github.com/NeuroPyPy/rs-distances.git dev --squash
+        git subtree pull --prefix=rs-distances https://github.com/NeuroPyPy/rs-distances.git master --squash
 
     - name: Commit and Push Changes
       run: |
