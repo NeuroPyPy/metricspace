@@ -8,21 +8,20 @@ spike distance function is being called.
 
 """
 import numpy as np
-import warnings
 from numba import jit
 
 
 # Outer Entrypoint for Python Implementation -----------------------------------------------------------------------------------------------------
 def calculate_spkd_py(
-    cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | int | None = 1e-2
+    cspks: list, qvals: list | np.ndarray, res: float | int | None = 1e-2
 ):
     """
     Internal function to compute pairwise spike train distances with variable time precision for multiple cost values.
 
     Parameters
     ----------
-    cspks : list or np.ndarray
-        Nested iterable. Each inner list contains spike times for a single spike train.
+    cspks : list[np.ndarray or list] 
+        List where each inner iterable contains spike times (floats or ints) for a single spike train.
     qvals : list or np.ndarray
         List or array of time precision values to use in the computation.
     res : float, optional
@@ -33,28 +32,14 @@ def calculate_spkd_py(
     ndarray
         A 3D array containing pairwise spike train distances for each time precision value.
 
-    Raises
-    ------
-    TBD
-        Description of the exception.
-
     """
-    if res is not None and res < 0.1:
-        warnings.warn(
-            "Setting a small value for 'res' using the python implementation may result in long computation time.",
-            UserWarning,
-        )
-
-    if not isinstance(qvals, np.ndarray):
-        # Check if qvals is a numpy array
-        qvals = np.array(qvals)
-
     # Calculate the count of spikes in each spike train
     curcounts = [len(x) for x in cspks]
     numt = len(cspks)
 
     # Initialize 3D array to store pairwise distances for each time precision
     d = np.zeros((numt, numt, len(qvals)))
+    offsets = np.arange(-1, 1 + res, res) if res else [0]
 
     # Iterate over all pairs of spike trains
     for xi in range(numt - 1):
@@ -63,31 +48,36 @@ def calculate_spkd_py(
                 spk_train_a = np.array(cspks[xi])
                 spk_train_b = np.array(cspks[xj])
 
-                offsets = np.arange(-1, 1 + res, res) if res else [0]
-                for offset in offsets:
-                    if res:
-                        spk_train_a = spk_train_a + offset
+                first_iter = True
+                d_min = np.inf  # protect against unbound local error
 
+                for offset in offsets:
+                    spk_train_a_copy = spk_train_a.copy()
+                    if res:
+                        spk_train_a_copy += offset
                     outer_diff = np.abs(
-                        spk_train_a.reshape(-1, 1) - spk_train_b.reshape(1, -1)
-                    )
+                                        spk_train_a_copy.reshape(-1, 1) - spk_train_b.reshape(1, -1)
+                                    )
                     sd = qvals.reshape((-1, 1, 1)) * outer_diff
                     scr = np.zeros((len(qvals), curcounts[xi] + 1, curcounts[xj] + 1))
                     scr[:, 1:, 0] += np.arange(1, curcounts[xi] + 1)
                     scr[:, 0, 1:] += np.arange(1, curcounts[xj] + 1).reshape((1, -1))
 
-                    d_current = _compute_spike_distance(scr, sd)
-                    d[xi, xj, :] = (
-                        np.minimum(d[xi, xj, :], d_current)
-                        if offset != -1
-                        else d_current
-                    )
+                    d_current = _compute_spiketrain_distance_py(scr, sd)
+
+                    # keep a running minimum, likely a better way to do this, but this seems the most clear
+                    if first_iter:
+                        d_min = d_current
+                        first_iter = False
+                    else:
+                        d_min = np.minimum(d_min, d_current)
+                d[xi, xj, :] = d_min
             else:
                 d[xi, xj, :] = max(curcounts[xi], curcounts[xj])
     return np.maximum(d, np.transpose(d, [1, 0, 2]))
 
 
-def _spkd_v(scr, sd):
+def _compute_spiketrain_distance_py(scr, sd):
     """
     Compute spike-time distance.
 
@@ -105,7 +95,7 @@ def _spkd_v(scr, sd):
         numpy.ndarray: A 1D array representing the spike-time distances.
     """
     # Need to separate this iteration for compatibility with numba
-    scr = _calculate_spiketrain_distance_py(scr, sd)
+    scr = _distance_optimized_py(scr, sd)
 
     # The last column represents the final values of the accumulated cost of aligning the two spike trains
     d = np.squeeze(scr[:, -1, -1]).astype("float32")
@@ -114,7 +104,7 @@ def _spkd_v(scr, sd):
 
 
 @jit(nopython=True, fastmath=True)
-def _compute_spiketrain_distance_py(scr, sd):
+def _distance_optimized_py(scr, sd):
     """
     Perform an iteration over 2D slices of the 3D scr and sd arrays.
 

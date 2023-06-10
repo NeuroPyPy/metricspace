@@ -113,7 +113,7 @@ fn _calculate_spkd_impl(
 }
 
 #[pyfunction]
-// Function: _calculate_spkd_rust()
+// Function: _calculate_spkd_rs()
 //
 // Calls: _calculate_spkd_impl()
 //
@@ -121,7 +121,7 @@ fn _calculate_spkd_impl(
 //
 // Format input arrays from python into rust-friendly types and call the
 // _calculate_spkd_impl function to do the actual computation.
-pub fn calculate_spkd_rust(
+pub fn calculate_spkd_rs(
     py: Python,
     cspks: &PyList,
     qvals: &PyArray1<f64>,
@@ -160,14 +160,14 @@ pub fn calculate_spkd_rust(
 
 // Module: metricspace (rust implementation)
 //
-// Calls: _calculate_spkd_rust()
+// Calls: _calculate_spkd_rs()
 //
 // Entry point for the rust_metricspace module.
 // Rust implementation of metricspace functions.
 // Analagous to python entrypoint in _spkd_functions._calculate_spkd_py
 #[pymodule]
 fn metricspace_rs(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_wrapped(wrap_pyfunction!(calculate_spkd_rust))
+    m.add_wrapped(wrap_pyfunction!(calculate_spkd_rs))
         .unwrap();
     Ok(())
 }

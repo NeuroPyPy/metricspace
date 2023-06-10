@@ -36,4 +36,5 @@ documentation = "http://www-users.med.cornell.edu/~jdvicto/metricdf.html#algorit
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
-python-source = "python"
+module-name = "metricspace.metricspace_rs"
+python-source = "src"
