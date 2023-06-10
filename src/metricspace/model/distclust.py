@@ -26,13 +26,13 @@ def _validate_distclust_input(dists, nsam, ifresamp, iftrump):
 
 def distclust(dists, nsam, expo=-2, ifresamp=0, iftrump=1):
     """
-    Distance clustering. Classificatiion algorithm that returns a KxKxQ confusion matrix where K
-            is the number of classes and q is the temporal coding cost metric.
+    Distance clustering. Classificatiion algorithm that returns a `KxK` confusion matrix where `K`
+            is the number of classes.
 
     Parameters
     ----------
     dists : numpy.ndarray
-        A 2D symmetric matrix of pairwise distances with 0's on the diagonal. Its size should be sum(nsam) x sum(nsam).
+        A 2D symmetric matrix of pairwise distances with 0's on the diagonal. Its size should be ``sum(nsam) x sum(nsam)``.
         This will be the output of the spkd function.
     nsam : list or numpy.ndarray
         A list or 1D array where each entry is the number of trials in each condition.
