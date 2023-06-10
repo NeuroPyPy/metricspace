@@ -1,5 +1,6 @@
 import numpy as np
 from .calculate_spkd import spkd_functions
+from ..metricspace import calculate_spkd_rust
 import pandas as pd
 
 
@@ -18,7 +19,7 @@ def spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, use_rs: bool = True
         Whether to use the rs_distances implementation. If True, it utilizes
         calculate_spkd_rust function, otherwise, it uses spkd_functions.calculate_spkd.
         Defaults to True.
-  w
+  
     Returns
     -------
     ndarray
