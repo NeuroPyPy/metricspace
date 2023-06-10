@@ -8,28 +8,36 @@ spike distance function is being called.
 
 """
 import numpy as np
-import importlib.util
 import warnings
 from numba import jit
 
 
 # Outer Entrypoint for Python Implementation -----------------------------------------------------------------------------------------------------
-def _calculate_spkd_py(
+def calculate_spkd_py(
     cspks: np.ndarray | list, qvals: list | np.ndarray, res: float | int | None = 1e-2
 ):
     """
     Internal function to compute pairwise spike train distances with variable time precision for multiple cost values.
 
-    Args:
-        cspks (nested iterable[list | np.ndarray]): Each inner list contains spike times for a single spike train.
-        qvals (list of float | int): List of time precision values to use in the computation.
-        res (float, optional): The search resolution of the spike trains. Defaults to 1e-4.
+    Parameters
+    ----------
+    cspks : list or np.ndarray
+        Nested iterable. Each inner list contains spike times for a single spike train.
+    qvals : list or np.ndarray
+        List or array of time precision values to use in the computation.
+    res : float, optional
+        The search resolution of the spike trains. Defaults to 1e-4.
 
-    Returns:
-        ndarray: A 3D array containing pairwise spike train distances for each time precision value.
+    Returns
+    -------
+    ndarray
+        A 3D array containing pairwise spike train distances for each time precision value.
 
-      Raises:
-             TypeError: If cspks is not a list or numpy array.
+    Raises
+    ------
+    TBD
+        Description of the exception.
+
     """
     if res is not None and res < 0.1:
         warnings.warn(
