@@ -159,7 +159,7 @@ pub fn _calculate_spkd_rust(
 }
 
 #[pymodule]
-fn _spkd_rs(_py: Python, m: &PyModule) -> PyResult<()> {
+fn rust_metricspace(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(_calculate_spkd_rust))
         .unwrap();
     Ok(())
