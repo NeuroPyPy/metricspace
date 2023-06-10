@@ -49,16 +49,17 @@ def distclust(dists, nsam, expo=-2, ifresamp=0, iftrump=1):
     Returns
     -------
     numpy.ndarray
-        A confusion matrix of size length(nsam) x length(nsam).
+        A confusion matrix of size `len(nsam)` x `len(nsam)`.
 
     Raises
     ------
-    ValueError
-        If 'iftrump' is 1 and 'ifresamp' is 2, a ValueError is raised as bootstrapping cannot be used when 0-distances trump.
-        If 'dists' is not a square matrix, a ValueError is raised.
-        If 'dists' does not have 0's on the diagonal, a ValueError is raised.
-        If 'nsam' is not a list or 1D array of positive integers, a ValueError is raised.
-        If the sum of 'nsam' is not equal to the number of rows and columns in 'dists', a ValueError is raised.
+    ValueError : If any of the following conditions are met:
+        -  `iftrump` is 1 and `ifresamp` is 2, bootstrapping is undefined behavior.
+        -  `dists` does not have 0's on the diagonal.
+        -  `dists` is not a square matrix.
+        -  `expo` is not a string or float.
+        -  `nsam` is not a list or 1D array of positive integers.
+        -  The sum of `nsam` is not equal to the number of rows and columns in `dists`.
 
     See Also
     --------
@@ -77,6 +78,7 @@ def distclust(dists, nsam, expo=-2, ifresamp=0, iftrump=1):
     Algorithm doesn't assume all classes have the same number of trials and self-distances are not included in the calculation.
 
     Examples
+    --------
         The easiest way to get nsam is to use np.unique(y, return_counts=True)[1], where y is a numpy array-like object (list, numpy.ndarray, etc.)
         that contains the class labels for each sample. For example, if y = [1, 1, 1, 2, 2, 3, 3, 3, 3], then nsam = [3, 2, 4].
         --------
