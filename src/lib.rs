@@ -166,7 +166,7 @@ pub fn calculate_spkd_rust(
 // Rust implementation of metricspace functions.
 // Analagous to python entrypoint in _spkd_functions._calculate_spkd_py
 #[pymodule]
-fn metricspace(_py: Python, m: &PyModule) -> PyResult<()> {
+fn metricspace_rs(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(calculate_spkd_rust))
         .unwrap();
     Ok(())

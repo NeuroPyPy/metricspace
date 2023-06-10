@@ -1,6 +1,6 @@
 import numpy as np
-from .calculate_spkd import spkd_functions
-from ..metricspace import calculate_spkd_rust
+from .calculate_spkd.spkd_functions import calculate_spkd_py
+from ..metricspace_rs import calculate_spkd_rust
 import pandas as pd
 
 
@@ -36,7 +36,7 @@ def spkd(cspks: np.ndarray | list, qvals: list | np.ndarray, use_rs: bool = True
         d = calculate_spkd_rust(cspks, qvals)
         return np.maximum(d, np.transpose(d, [1, 0, 2]))
     else:
-        return spkd_functions.calculate_spkd(cspks, qvals, None)
+        return calculate_spkd_py(cspks, qvals, None)
 
 
 def spkd_slide(
