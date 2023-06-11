@@ -13,8 +13,8 @@ from numba import jit
 
 # Outer Entrypoint for Python Implementation -----------------------------------------------------------------------------------------------------
 def calculate_spkd_py(
-    cspks: list, qvals: list | np.ndarray, res: float | int | None = 1e-2
-):
+    cspks: list, qvals: list | np.ndarray, res: float | int | None = 1e-2, return_min_res: bool = False
+) -> np.ndarray | tuple[np.ndarray, np.ndarray]:
     """
     Internal function to compute pairwise spike train distances with variable time precision for multiple cost values.
 
@@ -26,16 +26,25 @@ def calculate_spkd_py(
         List or array of time precision values to use in the computation.
     res : float, optional
         The search resolution of the spike trains. Defaults to 1e-4.
+    return_min_res : bool, optional
+        Whether to return the time precision value that yielded the minimum distance for each spike train pair. Defaults to False.
 
     Returns
     -------
     ndarray
         A 3D array containing pairwise spike train distances for each time precision value.
+    tuple [ndarray, ndarray], optional
+        A tuple containing the minimum distance for each spike train pair and the corresponding time precision value.
 
     """
+
     # Calculate the count of spikes in each spike train
     curcounts = [len(x) for x in cspks]
     numt = len(cspks)
+
+    #  min_res arrays if requested
+    if return_min_res:
+        min_res = np.zeros((numt, numt, len(qvals)))
 
     # Initialize 3D array to store pairwise distances for each time precision
     d = np.zeros((numt, numt, len(qvals)))
@@ -50,6 +59,7 @@ def calculate_spkd_py(
 
                 first_iter = True
                 d_min = np.inf  # protect against unbound local error
+                temp_offset = []
 
                 for offset in offsets:
                     spk_train_a_copy = spk_train_a.copy()
@@ -65,19 +75,23 @@ def calculate_spkd_py(
 
                     d_current = _compute_spiketrain_distance_py(scr, sd)
 
-                    # keep a running minimum, likely a better way to do this, but this seems the most clear
-                    if first_iter:
+                    if np.any(d_current < d_min):
+                        min_offset = offset
                         d_min = d_current
-                        first_iter = False
-                    else:
-                        d_min = np.minimum(d_min, d_current)
                 d[xi, xj, :] = d_min
+                if return_min_res:
+                    min_res[xi, xj, :] = min_offset
             else:
                 d[xi, xj, :] = max(curcounts[xi], curcounts[xj])
-    return np.maximum(d, np.transpose(d, [1, 0, 2]))
+
+    d =  np.maximum(d, np.transpose(d, [1, 0, 2]))
+    if return_min_res:
+        return d, min_res
+    else:
+        return d
 
 
-def _compute_spiketrain_distance_py(scr, sd):
+def _compute_spiketrain_distance_py(scr, sd) -> np.ndarray:
     """
     Compute spike-time distance.
 

@@ -47,11 +47,11 @@ def spkd(cspks: list, qvals: list | np.ndarray, use_rs: bool = True):
         d = calculate_spkd_rs(cspks, qvals)
         return np.maximum(d, np.transpose(d, [1, 0, 2]))
     else:
-        return calculate_spkd_py(cspks, qvals, None)
+        return calculate_spkd_py(cspks, qvals, None, False)
 
 
 def spkd_slide(
-    cspks: list, qvals: list | np.ndarray, res: float | int = 1e-3
+    cspks: list, qvals: list | np.ndarray, res: float | int = 1e-3, return_min_res: bool = False,
 ):
     """
 
@@ -61,7 +61,9 @@ def spkd_slide(
     that returns the minimum distance between two spike-trains over multiple possible time-translations of one of the spike-trains.
     
     This is helpful when you want to align spikes-trains with different window sizes, i.e. spike-train A is 2s, spike-train B is 1s, 
-    and you want to find the best alignment between the two.
+    and you want to find the best alignment between the two. 
+
+    This method has the exact same "interpretation" of the original metric, but in a more comprehensive and laborious way.
 
     Parameters
     ----------
@@ -72,12 +74,17 @@ def spkd_slide(
     res : float or int, optional
         Time resolution (float or int) to use in the computation. Defaults to 1e-3, which indicates
         a millisecond resolution search window.
+    return_min_res : bool, optional
+        Whether to return the minimum distance and time translation for each spike-train pair. Defaults to False.
+
 
     Returns
     -------
     ndarray
         A 3D ndarray with floats representing pairwise spike train distances
         for each time precision value.
+    tuple, optional
+        A tuple containing the minimum distance and time translation for each spike-train pair. Only returned if return_min_res is True.
 
     Notes
     -----
@@ -100,4 +107,4 @@ def spkd_slide(
         qvals = np.array(qvals)
     if res < 1e-4:
         raise UserWarning(f"Too small of a search window can drastically increase computation time: {res}")
-    return calculate_spkd_py(cspks, qvals, res)
+    return calculate_spkd_py(cspks, qvals, res, return_min_res)
