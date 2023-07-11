@@ -1,5 +1,5 @@
 import numpy as np
-from . import histinfo as hinfo
+from . import histinfo
 
 
 def tblxinfo(tabl):
@@ -12,5 +12,5 @@ def tblxinfo(tabl):
     Returns:
         float: Transinformation in bits.
     """
-    h = hinfo.histinfo(np.sum(tabl, axis=1)) + hinfo.histinfo(np.sum(tabl, axis=0)) - hinfo.histinfo(tabl)
+    h = histinfo(np.sum(tabl, axis=1)) + histinfo(np.sum(tabl, axis=0)) - histinfo(tabl)
     return h

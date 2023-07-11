@@ -1,5 +1,5 @@
 
-# Metric Space Analysis - A Python & Rust Implementation 
+# Metric Space Analysis - A Python & Rust Implementation
 
 <br>
 
@@ -18,14 +18,14 @@
 
 <br>
 
-For a full walkthrough of cost-based metrics, see Jonathon Victor's <a href="http://www-users.med.cornell.edu/~jdvicto/metricdf.html#introduction"> website: </a> 
+For a full walkthrough of cost-based metrics, see Jonathon Victor's <a href="http://www-users.med.cornell.edu/~jdvicto/metricdf.html#introduction"> website: </a>
 
 > Spike trains are considered to be points in an abstract topological space. A spike train metric is a rule which assigns a non-negative number D(Sa,Sb) to pairs of spike trains Sa and Sb which expresses how dissimilar they are.
- 
+
 <br>
 
 This repository hosts a Python implementation of the metric space analysis algorithms with several optimizations:
-* The more computationally intensive functions are <a href="http://github.com/NeuroPyPy/rs-distances"> implemented in Rust (with benchmarks for matlab, python and rust)</a> and compiled into a shared library that can be utilized within Python.
+* The more computationally intensive functions are implemented in Rust (with benchmarks for matlab, python and rust) and compiled into a shared library that can be utilized within Python.
 * Spike train loops are vectorized, limiting the numpy "auto-vectorization" safety and leveraging the power of AVX2 vector instructions in modern CPUs.
 * Parallelization of independent spike-trains using the multiprocessing library (multithreading in the works).
 
@@ -101,7 +101,7 @@ spike_train_A = np.sort(np.random.uniform(low=0.0, high=2, size=100))
 spike_train_B = np.sort(np.random.uniform(low=0.0, high=2, size=100))
 
 # Input spike trains into a list or array (as many or few as you want)
-spike_trains = [spike_train_A, spike_train_B] 
+spike_trains = [spike_train_A, spike_train_B]
 
 # Make array of cost values to be used in the spike-distance calculation (here we get 0 to 512)
 costs = np.concatenate(([0], 2 ** np.arange(-4, 9.5, 0.5)))
@@ -140,7 +140,7 @@ Below is a comparative performance table of the spike-train iterator function im
 
 <br>
 
-## Advantages of Rust Implementation 
+## Advantages of Rust Implementation
 Array manipulations, particularly those performed within computationally intensive tasks, are highly sensitive to memory allocation and cleanup. Rust, with its ownership model and automatic memory management, excels in this area. Rust automatically reclaims the memory when an object (like an array or a slice) goes out of scope. This is a stark contrast to languages like Python, where a garbage collector is relied upon to perform memory cleanup. This difference provides Rust implementations with a distinct edge in performance, which is reflected in the comparative analysis shown above.
 
 With these Rust implementations, you can achieve the high-level expressiveness of Python while benefiting from the superior performance and efficiency of Rust.
@@ -155,9 +155,9 @@ With these Rust implementations, you can achieve the high-level expressiveness o
 
 ## Contributions
 
-Any contributions, improvements or suggestions are welcome. 
+Any contributions, improvements or suggestions are welcome.
 
 ### Original Developers
 Jonathan D. Victor: jdvicto@med.cornell.edu
 Keith P. Purpura: kpurpura@med.cornell.edu
-Dmitriy Aronov: aronov@mit.edu 
+Dmitriy Aronov: aronov@mit.edu

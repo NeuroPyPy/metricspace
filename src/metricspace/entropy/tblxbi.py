@@ -1,5 +1,5 @@
 import numpy as np
-from . import histbi as hbi
+from . import histbi
 from . import tblxtpbi as ttpbi
 
 
@@ -18,7 +18,7 @@ def tblxbi(ctabl, estimate_type, param=None):
     h = None
     ty = estimate_type[0:2].lower()
     if ty == 'ja':
-        h = hbi.histbi(np.sum(ctabl, axis=0), 'ja') + hbi.histbi(np.sum(ctabl, axis=1), 'ja') - hbi.histbi(ctabl, 'ja')
+        h = histbi(np.sum(ctabl, axis=0), 'ja') + histbi(np.sum(ctabl, axis=1), 'ja') - histbi(ctabl, 'ja')
     elif ty == 'tr':
         useall = 0 if param is None else param
         h = ttpbi.tblxtpbi(ctabl, useall)
